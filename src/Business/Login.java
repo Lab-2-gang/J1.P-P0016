@@ -4,22 +4,37 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Login {
-
-    String username = null;
-    String password = null;
-
     // Class Login can read username and password as string
     // return String [] with username and password
 
-    public String[] ReadInput() {
+    public String[] ReadLogin() {
+        String username;
+        String password;
+
         String[] input = new String[2];
+
+        ReadInput readInput = new ReadInput();
+        
         try {
             System.out.println("Enter username: ");
-            username = new ReadInput().ReadInput();
+            username = readInput.ReadInput();
+
+            if (CheckUsername(username) != true)
+            {
+                return null;
+            }
+
             System.out.println("Enter password: ");
-            password = new ReadInput().ReadInput();
+            password = readInput.ReadInput();
+
+            if (CheckPassword(password) != true)
+            {
+                return null;
+            }
+
             input[0] = username;
             input[1] = password;
+
             return input;
         } catch (Exception e) {
             // cannot read
@@ -27,26 +42,47 @@ public class Login {
         }
     }
 
-    public void CheckUsername(String username) {
+    public Boolean CheckUsername(String username) {
         // Exxx and xxx are numbers
         // Return Boolean
-        Pattern pattern = Pattern.compile("^E\\d{3}$");
-        Matcher matcher = pattern.matcher(username);
-        if (matcher.find() == true)
-            System.out.println("Username is valid");
-        else
-            System.out.println("Username is invalid");
+        try
+        {
+            Pattern pattern = Pattern.compile("^E\\d{3}$");
+            Matcher matcher = pattern.matcher(username);
 
+            if (matcher.find() == true)
+                return true;
+            else
+            {
+                System.out.println("Invalid username.");
+                return false;
+            }
+        }
+        catch (Exception e)
+        {
+            // error
+            return false;
+        }
     }
 
-    public void CheckPassword(String password) {
+    public Boolean CheckPassword(String password) {
         // Password is unlimited characters and numbers
         // Return Boolean
-        Pattern pattern = Pattern.compile("^[\\D]");
-        Matcher matcher = pattern.matcher(password);
-        if (matcher.find() == true)
-            System.out.println("Password is valid");
-        else
-            System.out.println("Password is invalid");
+
+        try
+        {
+            Pattern pattern = Pattern.compile("^[\\D]");
+            Matcher matcher = pattern.matcher(password);
+
+            if (matcher.find() == true)
+                return true;
+            else
+                return false;
+        }
+        catch (Exception e)
+        {
+            // error
+            return false;
+        }
     }
 }
