@@ -12,30 +12,21 @@ public class Login {
     public String[] ReadLogin() {
         String username;
         String password;
-
-        String[] input = new String[2];
         
         try {
             System.out.println("Enter username: ");
             username = ReadInput.ReadUserInput();
 
-            if (CheckUsername(username) != true)
-            {
-                return null;
-            }
-
             System.out.println("Enter password: ");
             password = ReadInput.ReadUserInput();
 
-            if (CheckPassword(password) != true)
+            if (CheckPassword(password) != true || CheckUsername(username) != true)
             {
+                // error
                 return null;
             }
 
-            input[0] = username;
-            input[1] = password;
-
-            return input;
+            return new String[] {username, password};
         } catch (Exception e) {
             // cannot read
             return null;
