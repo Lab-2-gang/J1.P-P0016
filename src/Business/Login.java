@@ -3,6 +3,8 @@ package Business;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import Tool.ReadInput;
+
 public class Login {
     // Class Login can read username and password as string
     // return String [] with username and password
@@ -12,12 +14,10 @@ public class Login {
         String password;
 
         String[] input = new String[2];
-
-        ReadInput readInput = new ReadInput();
         
         try {
             System.out.println("Enter username: ");
-            username = readInput.ReadInput();
+            username = ReadInput.ReadUserInput();
 
             if (CheckUsername(username) != true)
             {
@@ -25,7 +25,7 @@ public class Login {
             }
 
             System.out.println("Enter password: ");
-            password = readInput.ReadInput();
+            password = ReadInput.ReadUserInput();
 
             if (CheckPassword(password) != true)
             {

@@ -1,9 +1,6 @@
 package Presentation;
 
 public class Color {
-    public Color() {
-        
-    }
     
     // Reset
     public static final String RESET = "\033[0m";  // Text Reset
