@@ -10,6 +10,10 @@ public class Delivery
     private String deliveryNumber;
 
 
+    public Delivery(String deliveryID2, String deliveryName2, String deliveryHouseNumber2, String deliveryStreetName2,
+            String deliveryNumber2) {
+    }
+
     public String getDeliveryID() {
         return deliveryID;
     }

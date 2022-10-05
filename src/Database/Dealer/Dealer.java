@@ -11,6 +11,10 @@ public class Dealer
     private Boolean isContinuing;
 
 
+    public Dealer(String dealerID2, String dealerName2, String dealerHouseNumber2, String dealerStreetName2,
+            String dealerNumber2, Boolean isContinuing2) {
+    }
+
     public String getDealerID() {
         return dealerID;
     }
