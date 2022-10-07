@@ -6,22 +6,22 @@ import Business.DealerManagerPkg.Remove.*;
 import Business.DealerManagerPkg.Search.*;
 import Business.DealerManagerPkg.Update.*;
 import Database.Dealer.Dealer;
-import java.util.LinkedList;
-import Business.DealerOperation;
+import java.util.ArrayList;
+
 import Tool.ReadInput;
 
-public class DealerManager
+public class DealerManager implements IDealerManager
 {
-    private LinkedList<Dealer> dealers;
+    private ArrayList<Dealer> dealers;
 
 
-    public DealerManager(LinkedList<Dealer> dealers)
+    public DealerManager(ArrayList<Dealer> dealers)
     {
         this.dealers = dealers;
     }
 
 
-    public void DealerManagerMenu(LinkedList<Dealer> dealers)
+    public void DealerManagerMenu()
     {
         boolean isBeingUsed = true;
 

@@ -1,19 +1,22 @@
-package Business;
+package Business.LoginPkg;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import Tool.ReadInput;
 
-public class Login {
+public class Login implements ILogin
+{
     // Class Login can read username and password as string
     // return String [] with username and password
 
-    public String[] ReadLogin() {
+    public String[] ReadLogin()
+    {
         String username;
         String password;
         
-        try {
+        try
+        {
             System.out.println("Enter username: ");
             username = ReadInput.ReadUserInput();
 
@@ -27,13 +30,16 @@ public class Login {
             }
 
             return new String[] {username, password};
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             // cannot read
             return null;
         }
     }
 
-    private Boolean CheckUsername(String username) {
+    private Boolean CheckUsername(String username)
+    {
         // Exxx and xxx are numbers
         // Return Boolean
         try
@@ -56,7 +62,8 @@ public class Login {
         }
     }
 
-    private Boolean CheckPassword(String password) {
+    private Boolean CheckPassword(String password)
+    {
         // Password is unlimited characters and numbers
         // Return Boolean
 

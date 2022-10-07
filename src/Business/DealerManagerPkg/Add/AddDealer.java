@@ -1,7 +1,7 @@
 package Business.DealerManagerPkg.Add;
 
 import java.util.Collections;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import Database.Dealer.Dealer;
 import Tool.PatternCheck;
 import Tool.ReadInput;
@@ -15,7 +15,7 @@ public class AddDealer implements IAddDealer
     
     
     // get dealer to add
-    public void Add(LinkedList<Dealer> dealers)
+    public void Add(ArrayList<Dealer> dealers)
     {
         System.out.print("Enter dealer's ID: ");
         String dealerID = ReadInput.ReadUserInput();
@@ -70,7 +70,7 @@ public class AddDealer implements IAddDealer
     
     
     // check validity of dealer ID
-    private Boolean CheckDealerID(String dealerID, LinkedList<Dealer> dealers)
+    private Boolean CheckDealerID(String dealerID, ArrayList<Dealer> dealers)
     {
         Boolean isNullOrBlank = dealerID == null || dealerID.isBlank() == true;
         Boolean isDealerIDFormatValid = PatternCheck.Check(DEALER_ID, dealerID) == true;
@@ -81,7 +81,7 @@ public class AddDealer implements IAddDealer
     
     
     // check for the existence of dealer before adding
-    private Boolean CheckDealerAlreadyExist(String dealerID, LinkedList<Dealer> dealers)
+    private Boolean CheckDealerAlreadyExist(String dealerID, ArrayList<Dealer> dealers)
     {
         for (Dealer dealer : dealers)
         {
@@ -96,7 +96,7 @@ public class AddDealer implements IAddDealer
     
     
     // add dealer to database
-    private void AddDealerToDatabase(Dealer dealer, LinkedList<Dealer> dealers)
+    private void AddDealerToDatabase(Dealer dealer, ArrayList<Dealer> dealers)
     {
         dealers.add(dealer);
         

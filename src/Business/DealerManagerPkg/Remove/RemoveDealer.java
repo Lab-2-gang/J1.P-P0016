@@ -2,7 +2,7 @@ package Business.DealerManagerPkg.Remove;
 
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import Database.Dealer.Dealer;
 import Tool.PatternCheck;
 import Tool.ReadInput;
@@ -15,7 +15,7 @@ public class RemoveDealer implements IRemoveDealer
     
     
     // get user input to remove
-    public void Remove(LinkedList<Dealer> dealers)
+    public void Remove(ArrayList<Dealer> dealers)
     {
         if (dealers.isEmpty() == true)
         {
@@ -67,7 +67,7 @@ public class RemoveDealer implements IRemoveDealer
 
     
     // remove dealer from database
-    private Boolean RemoveDealerFromDatabase(String dealerID, LinkedList<Dealer> dealers)
+    private Boolean RemoveDealerFromDatabase(String dealerID, ArrayList<Dealer> dealers)
     {
         Iterator<Dealer> dealersIterator = dealers.iterator();
         

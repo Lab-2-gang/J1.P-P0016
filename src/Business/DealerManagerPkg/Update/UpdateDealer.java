@@ -1,7 +1,7 @@
 package Business.DealerManagerPkg.Update;
 
 import java.util.Collections;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import Database.Dealer.Dealer;
 import Tool.PatternCheck;
 import Tool.ReadInput;
@@ -15,7 +15,7 @@ public class UpdateDealer implements IUpdateDealer
     
     
     // get user input to update
-    public void Update(LinkedList<Dealer> dealers)
+    public void Update(ArrayList<Dealer> dealers)
     {
         if (dealers.isEmpty() == true)
         {
@@ -112,7 +112,7 @@ public class UpdateDealer implements IUpdateDealer
     
     
     // check for the existence of dealer before adding
-    public Boolean CheckDealerExist(String dealerID, LinkedList<Dealer> dealers)
+    public Boolean CheckDealerExist(String dealerID, ArrayList<Dealer> dealers)
     {
         for (Dealer dealer : dealers)
         {
@@ -127,7 +127,7 @@ public class UpdateDealer implements IUpdateDealer
     
     
     // add dealer to database
-    private Boolean UpdateDealerToDatabase(Dealer dealer, LinkedList<Dealer> dealers)
+    private Boolean UpdateDealerToDatabase(Dealer dealer, ArrayList<Dealer> dealers)
     {
         for (Dealer traverseDealer : dealers)
         {

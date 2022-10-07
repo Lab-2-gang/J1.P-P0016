@@ -1,4 +1,4 @@
-package Business;
+package Business.DealerManagerPkg;
 
 public enum DealerOperation
 {

@@ -1,9 +1,9 @@
 package Business.DealerManagerPkg.Add;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import Database.Dealer.Dealer;
 
 public interface IAddDealer
 {
-    public void Add(LinkedList<Dealer> dealers);
+    public void Add(ArrayList<Dealer> dealers);
 }

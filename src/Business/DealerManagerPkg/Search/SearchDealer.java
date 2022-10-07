@@ -1,7 +1,6 @@
 package Business.DealerManagerPkg.Search;
 
-import java.util.LinkedList;
-
+import java.util.ArrayList;
 import Database.Dealer.Dealer;
 import Tool.PatternCheck;
 import Tool.ReadInput;
@@ -14,7 +13,7 @@ public class SearchDealer implements ISearchDealer
     
     
     // get user input to search for dealer
-    public Dealer Search(LinkedList<Dealer> dealers)
+    public Dealer Search(ArrayList<Dealer> dealers)
     {
         if (dealers.isEmpty() == true)
         {
@@ -54,7 +53,7 @@ public class SearchDealer implements ISearchDealer
 
     
     // search from database
-    private Dealer SearchDealerFromDatabase(String dealerID, LinkedList<Dealer> dealers)
+    private Dealer SearchDealerFromDatabase(String dealerID, ArrayList<Dealer> dealers)
     {
         for (Dealer dealer : dealers)
         {

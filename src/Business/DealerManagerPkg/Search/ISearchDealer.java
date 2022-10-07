@@ -1,9 +1,9 @@
 package Business.DealerManagerPkg.Search;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import Database.Dealer.Dealer;
 
 public interface ISearchDealer
 {
-    public Dealer Search(LinkedList<Dealer> dealers);
+    public Dealer Search(ArrayList<Dealer> dealers);
 }

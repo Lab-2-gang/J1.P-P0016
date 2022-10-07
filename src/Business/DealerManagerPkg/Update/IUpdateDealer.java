@@ -1,9 +1,9 @@
 package Business.DealerManagerPkg.Update;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import Database.Dealer.Dealer;
 
 public interface IUpdateDealer
 {
-    public void Update(LinkedList<Dealer> dealers);
+    public void Update(ArrayList<Dealer> dealers);
 }

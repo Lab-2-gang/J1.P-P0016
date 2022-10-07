@@ -1,8 +1,7 @@
 package Presentation;
 
 import Business.Business;
-import Business.CheckLogin;
-import Business.Login;
+import Business.LoginPkg.*;
 import Tool.ReadInput;
 import Database.Account.*;
 
@@ -195,7 +194,7 @@ public class Program {
             {
                 case "1" ->
                 {
-                    Login userLogin = new Login();
+                    ILogin userLogin = new Login();
                     String[] userLoginInformation = userLogin.ReadLogin();
 
                     if (userLoginInformation == null)
@@ -204,7 +203,7 @@ public class Program {
                         continue;
                     }
 
-                    CheckLogin checkLogin = new CheckLogin();
+                    ICheckLogin checkLogin = new CheckLogin();
                     AccountType accountType = checkLogin.checkLogin(userLoginInformation, 
                         business.getDatabase().getAccounts());
 

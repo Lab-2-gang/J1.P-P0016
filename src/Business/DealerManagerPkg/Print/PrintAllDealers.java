@@ -1,13 +1,12 @@
 package Business.DealerManagerPkg.Print;
 
-import java.util.LinkedList;
-
+import java.util.ArrayList;
 import Database.Dealer.Dealer;
 
 
 public class PrintAllDealers implements IPrint
 {
-    public void Print(LinkedList<Dealer> dealers)
+    public void Print(ArrayList<Dealer> dealers)
     {
         if (dealers.isEmpty() == true)
         {
