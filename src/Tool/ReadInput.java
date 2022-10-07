@@ -7,30 +7,42 @@ public class ReadInput {
     private static final Scanner readInput = new Scanner(System.in);
 
     // read input as string
-    public static String ReadUserInput() {
-        try {
+    public static String ReadUserInput()
+    {
+        try
+        {
             return readInput.nextLine().trim();
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             // cannot read
             return null;
         }
     }
 
     // convert input to int
-    public static Integer ConvertToInteger(String input) {
-        try {
+    public static Integer ConvertToInteger(String input)
+    {
+        try
+        {
             return Integer.parseInt(input);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             // cannot convert
             return null;
         }
     }
 
     // convert input
-    public static Float ConvertToFloat(String input) {
-        try {
+    public static Float ConvertToFloat(String input)
+    {
+        try
+        {
             return Float.parseFloat(input);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             // cannot convert
             return null;
         }

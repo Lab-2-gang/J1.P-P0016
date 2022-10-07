@@ -1,4 +1,4 @@
-package Presentation.Tools;
+
 
 import Business.Business;
 import Business.LoginPkg.*;
@@ -178,6 +178,7 @@ public class Program {
 
         while (true)
         {
+            System.out.println("===============================================");
             System.out.println("1. Login");
             System.out.println("2. Exit");
             System.out.print("Enter your option: ");
@@ -222,7 +223,7 @@ public class Program {
 
                         case Dealer ->
                         {
-                            
+                            business.BusinessDelegate(AccountType.Dealer);
                         }
 
                         case Delivery ->

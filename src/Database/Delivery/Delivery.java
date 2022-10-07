@@ -3,6 +3,7 @@ package Database.Delivery;
 
 public class Delivery
 {
+    // delivery info
     private String deliveryID;
     private String deliveryName;
     private String deliveryHouseNumber;
@@ -10,23 +11,29 @@ public class Delivery
     private String deliveryNumber;
 
 
-    public String getDeliveryID() {
+    // get, set
+    public String getDeliveryID()
+    {
         return deliveryID;
     }
 
-    public String getDeliveryName() {
+    public String getDeliveryName()
+    {
         return deliveryName;
     }
 
-    public String getDeliveryHouseNumber() {
+    public String getDeliveryHouseNumber()
+    {
         return deliveryHouseNumber;
     }
 
-    public String getDeliveryStreetName() {
+    public String getDeliveryStreetName()
+    {
         return deliveryStreetName;
     }
 
-    public String getDeliveryNumber() {
+    public String getDeliveryNumber()
+    {
         return deliveryNumber;
     }
 }

@@ -7,20 +7,29 @@ import Business.DealerManagerPkg.Search.*;
 import Business.DealerManagerPkg.Update.*;
 import Database.Dealer.Dealer;
 import java.util.ArrayList;
-
 import Tool.ReadInput;
+
 
 public class DealerManager implements IDealerManager
 {
+    // dealers database
     private ArrayList<Dealer> dealers;
 
 
+    // constructor to add database from Business
     public DealerManager(ArrayList<Dealer> dealers)
     {
+        if (dealers == null)
+        {
+            // empty database
+            this.dealers = null;
+        }
+
         this.dealers = dealers;
     }
 
 
+    // menu + get user input
     public void DealerManagerMenu()
     {
         boolean isBeingUsed = true;
@@ -86,6 +95,8 @@ public class DealerManager implements IDealerManager
         }
     }
 
+
+    // delegate user choice
     private void DealerManagerDelegate(DealerOperation task)
     {
         switch (task)

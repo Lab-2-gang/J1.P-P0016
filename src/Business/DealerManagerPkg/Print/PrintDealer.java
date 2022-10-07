@@ -2,8 +2,10 @@ package Business.DealerManagerPkg.Print;
 
 import Database.Dealer.Dealer;
 
+
 public class PrintDealer
 {
+    // print single dealer
     public static void Print(Dealer dealer)
     {
         System.out.println("Dealer's ID: " + dealer.getDealerID());

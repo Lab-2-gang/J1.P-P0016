@@ -6,6 +6,7 @@ import Database.Dealer.Dealer;
 
 public class PrintAllDealers implements IPrint
 {
+    // print only continuing dealers
     public void Print(ArrayList<Dealer> dealers)
     {
         if (dealers.isEmpty() == true)

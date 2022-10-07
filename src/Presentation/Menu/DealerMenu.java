@@ -2,11 +2,16 @@ package Presentation.Menu;
 
 import java.util.ArrayList;
 
-public class DealerMenu {
+
+public class DealerMenu
+{
+    // menu list
     private ArrayList<String> menuList = new ArrayList<String>();
 
+
     // public getMenu() return menuList
-    public DealerMenu() {
+    public DealerMenu()
+    {
         menuList.add("1. Add new dealer");
         menuList.add("2. Search a dealer");
         menuList.add("3. Remove a dealer");
@@ -20,8 +25,10 @@ public class DealerMenu {
         menuList.add("Others for quit");
     }
 
+    
     // DealerMenu constructor add menu to menuList
-    public ArrayList<String> getMenuList() {
+    public ArrayList<String> getMenuList()
+    {
         return menuList;
     }
 }

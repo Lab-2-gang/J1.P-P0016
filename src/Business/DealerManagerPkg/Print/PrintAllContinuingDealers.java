@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class PrintAllContinuingDealers implements IPrint
 {
+    // print all dealers
     public void Print(ArrayList<Dealer> dealers)
     {
         if (dealers.isEmpty() == true)
