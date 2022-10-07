@@ -17,7 +17,7 @@ public class ReadInput {
     }
 
     // convert input to int
-    public static Integer convertToInteger(String input) {
+    public static Integer ConvertToInteger(String input) {
         try {
             return Integer.parseInt(input);
         } catch (Exception e) {

@@ -22,7 +22,7 @@ public class Login {
 
             if (CheckPassword(password) != true || CheckUsername(username) != true)
             {
-                // error
+                // invalid format
                 return null;
             }
 
@@ -33,7 +33,7 @@ public class Login {
         }
     }
 
-    public Boolean CheckUsername(String username) {
+    private Boolean CheckUsername(String username) {
         // Exxx and xxx are numbers
         // Return Boolean
         try
@@ -56,7 +56,7 @@ public class Login {
         }
     }
 
-    public Boolean CheckPassword(String password) {
+    private Boolean CheckPassword(String password) {
         // Password is unlimited characters and numbers
         // Return Boolean
 

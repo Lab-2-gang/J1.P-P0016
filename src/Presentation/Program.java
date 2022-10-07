@@ -1,7 +1,9 @@
 package Presentation;
 
-import java.io.IOException;
-import Presentation.Color;
+import Business.Business;
+import Business.CheckLogin;
+import Business.Login;
+import Tool.ReadInput;
 import Database.Account.*;
 
 public class Program {
@@ -170,4 +172,79 @@ public class Program {
     //     } while (choice > 0 && choice <= mnu.size());
     //     Message.showMessage("Thank you for using".toUpperCase(), Color.PURPLE);
     // }
+
+    public static void main(String[] args)
+    {
+        final Business business = new Business();
+
+        while (true)
+        {
+            System.out.println("1. Login");
+            System.out.println("2. Exit");
+            System.out.print("Enter your option: ");
+
+            String userInput = ReadInput.ReadUserInput();
+
+            if (userInput == null || userInput.isBlank() == true)
+            {
+                // input was not found
+                continue;
+            }
+
+            switch (userInput)
+            {
+                case "1" ->
+                {
+                    Login userLogin = new Login();
+                    String[] userLoginInformation = userLogin.ReadLogin();
+
+                    if (userLoginInformation == null)
+                    {
+                        // login failed
+                        continue;
+                    }
+
+                    CheckLogin checkLogin = new CheckLogin();
+                    AccountType accountType = checkLogin.checkLogin(userLoginInformation, 
+                        business.getDatabase().getAccounts());
+
+                    if (accountType == null)
+                    {
+                        // no account was found
+                        continue;
+                    }
+
+                    switch (accountType)
+                    {
+                        case Boss ->
+                        {
+                            // TO-DO to be implemeted
+                        }
+
+                        case Dealer ->
+                        {
+                            
+                        }
+
+                        case Delivery ->
+                        {
+                            // TO-DO to be implemented
+                        }
+                    }
+                }
+
+                case "2" ->
+                {
+                    // exit program
+                    System.exit(0);
+                }
+
+                default ->
+                {
+                    // input not in acceptable range
+                    continue;
+                }
+            }
+        }
+    }
 }

@@ -1,10 +1,10 @@
 package Business;
 
-public enum DealerOperationsType
+public enum DealerOperation
 {
     Add,
     Search,
-    Delete,
+    Remove,
     Update,
     PrintAll,
     PrintContinuing,
