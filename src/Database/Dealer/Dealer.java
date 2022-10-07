@@ -34,4 +34,15 @@ public class Dealer
     public Boolean getIsContinuing() {
         return isContinuing;
     }
+
+    public Object getId() {
+        return null;
+    }
+
+    public void setName(String string) {
+    }
+
+    public Object getCont() {
+        return null;
+    }
 }
