@@ -21,4 +21,8 @@ public class PatternCheck
             return null;
         }
     }
+
+    public boolean checkPattern(String username) {
+        return false;
+    }
 }
