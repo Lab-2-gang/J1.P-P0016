@@ -10,7 +10,8 @@ public class Delivery
     private String deliveryStreetName;
     private String deliveryNumber;
 
-public Delivery(String deliveryID, String deliveryName, String deliveryHouseNumber, String deliveryStreetName, String deliveryNumber) {
+public Delivery(String deliveryID, String deliveryName, String deliveryHouseNumber, String deliveryStreetName, String deliveryNumber)
+{
     this.deliveryID = deliveryID;
     this.deliveryName = deliveryName;
     this.deliveryHouseNumber = deliveryHouseNumber;

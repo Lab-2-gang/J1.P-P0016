@@ -11,15 +11,7 @@ public class Dealer
     private String dealerNumber;
     private Boolean isContinuing;
 
-public Dealer(String dealerID, String dealerName, String dealerHouseNumber, String dealerStreetName, String dealerNumber, Boolean isContinuing) {
-    this.dealerID = dealerID;
-    this.dealerName = dealerName;
-    this.dealerHouseNumber = dealerHouseNumber;
-    this.dealerStreetName = dealerStreetName;
-    this.dealerNumber = dealerNumber;
-    this.isContinuing = isContinuing;
-    }
-
+    
     // constructor
     public Dealer(String dealerID, String dealerName, String dealerHouseNumber, String dealerStreetName, String dealerNumber, Boolean isCotinuing)
     {

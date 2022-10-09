@@ -23,7 +23,7 @@ public class Business
 
             case Dealer ->
             {
-                IDealerManager dealerManager = new DealerManager(database.getDealers());
+                IDealerManager dealerManager = new DealerManager(database.GetDealerDatabase());
                 dealerManager.DealerManagerMenu();
             }
 

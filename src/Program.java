@@ -206,7 +206,7 @@ public class Program {
 
                     ICheckLogin checkLogin = new CheckLogin();
                     AccountType accountType = checkLogin.checkLogin(userLoginInformation, 
-                        business.getDatabase().getAccounts());
+                        business.getDatabase().GetAccountDatabase());
 
                     if (accountType == null)
                     {
