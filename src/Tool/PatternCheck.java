@@ -12,4 +12,8 @@ public class PatternCheck
 
         return matcher.find() == true;
     }
+
+    public boolean checkPattern(String username) {
+        return false;
+    }
 }
