@@ -3,6 +3,7 @@ package Database.Dealer;
 
 public class Dealer
 {
+    // dealer info
     private String dealerID;
     private String dealerName;
     private String dealerHouseNumber;
@@ -19,27 +20,46 @@ public Dealer(String dealerID, String dealerName, String dealerHouseNumber, Stri
     this.isContinuing = isContinuing;
     }
 
-    public String getDealerID() {
+    // constructor
+    public Dealer(String dealerID, String dealerName, String dealerHouseNumber, String dealerStreetName, String dealerNumber, Boolean isCotinuing)
+    {
+        this.dealerID = dealerID;
+        this.dealerName = dealerName;
+        this.dealerHouseNumber = dealerHouseNumber;
+        this.dealerStreetName = dealerStreetName;
+        this.dealerNumber = dealerNumber;
+        this.isContinuing = isCotinuing;
+    }
+
+
+    // get, set
+    public String getDealerID()
+    {
         return dealerID;
     }
 
-    public String getDealerName() {
+    public String getDealerName()
+    {
         return dealerName;
     }
 
-    public String getDealerHouseNumber() {
+    public String getDealerHouseNumber()
+    {
         return dealerHouseNumber;
     }
 
-    public String getDealerStreetName() {
+    public String getDealerStreetName()
+    {
         return dealerStreetName;
     }
 
-    public String getDealerNumber() {
+    public String getDealerNumber()
+    {
         return dealerNumber;
     }
 
-    public Boolean getIsContinuing() {
+    public Boolean getIsContinuing()
+    {
         return isContinuing;
     }
 }

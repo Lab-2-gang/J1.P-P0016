@@ -1,5 +1,6 @@
 package Database;
 
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -175,5 +176,20 @@ public class Database {
 
     }
 
+    // get, set
+    public ArrayList<Account> getAccounts()
+    {
+        return accounts;
+    }
+    
+    public ArrayList<Dealer> getDealers()
+    {
+        return dealers;
+    }
+
+    public ArrayList<Delivery> getDeliveries()
+    {
+        return deliveries;
+    }
 }
 

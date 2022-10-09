@@ -1,7 +1,9 @@
 package Database.Account;
 
 
-public class Account {
+public class Account
+{
+    // account info
     private String username;
     private String password;
     private AccountType accountType;
@@ -12,16 +14,19 @@ public class Account {
         this.accountType = accountType;
     }
 
-    public String getUsername() {
+    // get, set
+    public String getUsername()
+    {
         return username;
     }
 
-    public String getPassword() {
-
+    public String getPassword()
+    {
         return password;
     }
 
-    public AccountType getAccountType() {
+    public AccountType getAccountType()
+    {
         return accountType;
     }
 
