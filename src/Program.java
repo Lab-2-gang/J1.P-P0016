@@ -2,8 +2,8 @@
 
 import Business.Business;
 import Business.LoginPkg.*;
+import Persistance.Entity.Account.AccountType;
 import Tool.ReadInput;
-import Persistance.Account.AccountType;
 
 public class Program {
 

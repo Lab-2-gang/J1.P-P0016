@@ -1,7 +1,6 @@
 package Business.LoginPkg;
 
-import Persistance.Account.AccountType;
-
+import Persistance.Entity.Account.AccountType;
 
 public interface ICheckLogin
 {

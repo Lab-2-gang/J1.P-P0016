@@ -2,9 +2,9 @@ package Persistance;
 
 import java.util.ArrayList;
 
-import Persistance.Account.Account;
-import Persistance.Dealer.Dealer;
-import Persistance.Delivery.Delivery;
+import Persistance.Entity.Account.Account;
+import Persistance.Entity.Dealer.Dealer;
+import Persistance.Entity.Delivery.Delivery;
 import Persistance.ReadFile.IReadDatabase;
 import Persistance.ReadFile.ReadAccountFile;
 import Persistance.ReadFile.ReadDealerFile;

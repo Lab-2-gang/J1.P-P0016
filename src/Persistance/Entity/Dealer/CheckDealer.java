@@ -1,6 +1,10 @@
-package Persistance.Dealer;
+package Persistance.Entity.Dealer;
+
 import Tool.PatternCheck;
-public class CheckDealer {
+
+
+public class CheckDealer
+{
  //check dealer id format
     public static boolean checkDealerID(String dealerID) {
         String regex = "^D\\d{3}$";

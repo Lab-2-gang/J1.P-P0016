@@ -1,11 +1,8 @@
 package Business.DealerManagerPkg.Update;
 
 import java.util.Collections;
-
-import Persistance.Dealer.Dealer;
-
+import Persistance.Entity.Dealer.Dealer;
 import java.util.ArrayList;
-
 import Presentation.Tools.Color;
 import Presentation.Tools.Message;
 import Tool.PatternCheck;

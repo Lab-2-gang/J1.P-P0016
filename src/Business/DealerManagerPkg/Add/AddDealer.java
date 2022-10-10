@@ -2,7 +2,7 @@ package Business.DealerManagerPkg.Add;
 
 import java.util.Collections;
 
-import Persistance.Dealer.Dealer;
+import Persistance.Entity.Dealer.Dealer;
 
 import java.util.ArrayList;
 
@@ -50,6 +50,7 @@ public class AddDealer implements IAddDealer
             // invalid dealer house
             return;
         }
+
         if (PatternCheck.Check(DEALER_HOUSENUMBER, dealerHouseNumber) != true)
         {
             // wrong house number format
@@ -86,7 +87,9 @@ public class AddDealer implements IAddDealer
         Boolean isDealerIDFormatValid = PatternCheck.Check(DEALER_ID, dealerID) == true;
         Boolean isDealerIDAlreadyExist = CheckDealerAlreadyExist(dealerID, dealers);
         
-        return isNullOrBlank != true && isDealerIDFormatValid == true && isDealerIDAlreadyExist != true;
+        return isNullOrBlank != true
+            && isDealerIDFormatValid == true
+            && isDealerIDAlreadyExist != true;
     }
     
     

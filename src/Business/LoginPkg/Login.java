@@ -27,7 +27,7 @@ public class Login implements ILogin
                 return null;
             }
 
-            return new String[] {username, password};
+            return new String[] {username, password};   // 0. username  1. password
         }
         catch (Exception e)
         {

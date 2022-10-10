@@ -1,7 +1,7 @@
 package Business;
 
 import Business.DealerManagerPkg.*;
-import Persistance.Account.AccountType;
+import Persistance.Entity.Account.AccountType;
 
 
 public class Business

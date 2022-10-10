@@ -1,4 +1,4 @@
-package Persistance.Account;
+package Persistance.Entity.Account;
 
 import Tool.PatternCheck;
 

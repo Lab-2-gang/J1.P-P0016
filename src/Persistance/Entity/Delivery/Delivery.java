@@ -1,4 +1,4 @@
-package Persistance.Delivery;
+package Persistance.Entity.Delivery;
 
 
 public class Delivery

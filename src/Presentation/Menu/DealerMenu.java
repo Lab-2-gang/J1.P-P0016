@@ -21,7 +21,7 @@ public class DealerMenu
         menuList.add("5. Print all dealers");
         menuList.add("6. Print continuing dealers");
         menuList.add("7. Print UN-continuing dealers");
-        menuList.add("8. Write to file");
+        menuList.add("8. Save to file");
         menuList.add("Others for quit");
     }
 

@@ -1,4 +1,4 @@
-package Persistance.Account;
+package Persistance.Entity.Account;
 
 
 public enum AccountType

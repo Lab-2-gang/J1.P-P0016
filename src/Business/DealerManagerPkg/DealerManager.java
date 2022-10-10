@@ -6,6 +6,8 @@ import Business.DealerManagerPkg.Remove.*;
 import Business.DealerManagerPkg.Search.*;
 import Business.DealerManagerPkg.Update.*;
 import Persistance.Database;
+import Presentation.Menu.DealerMenu;
+import Presentation.Menu.PrintMenu;
 import Tool.ReadInput;
 
 
@@ -14,10 +16,14 @@ public class DealerManager implements IDealerManager
     // menu + get user input
     public void DealerManagerMenu()
     {
+        DealerMenu dealerMenu = new DealerMenu();
+
         boolean isBeingUsed = true;
 
         while (isBeingUsed == true)
         {
+            PrintMenu.Print(dealerMenu.getMenuList());
+
             System.out.print("Enter option: ");
             String userInput = ReadInput.ReadUserInput();
 
@@ -27,7 +33,7 @@ public class DealerManager implements IDealerManager
                 continue;
             }
 
-            switch (userInput)
+            switch (userInput)  // delegate
             {
                 case "1" ->
                 {

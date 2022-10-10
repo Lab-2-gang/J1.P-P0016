@@ -1,18 +1,21 @@
 package Business.DealerManagerPkg.Print;
 
-import Persistance.Dealer.Dealer;
+import Persistance.Entity.Dealer.Dealer;
 
 
 public class PrintDealer
 {
+    private final static String FORMAT = "|%-10s|%-10s|%-20s|%-15s|%-10s|";
     // print single dealer
     public static void Print(Dealer dealer)
     {
-        System.out.println("Dealer's ID: " + dealer.getDealerID());
-        System.out.println("Dealer's name: " + dealer.getDealerName());
-        System.out.println("Dealer's house number: " + dealer.getDealerHouseNumber());
-        System.out.println("Dealer's street name: " + dealer.getDealerStreetName());
-        System.out.println("Dealer's number: " + dealer.getDealerNumber());
-        System.out.println("Dealer's status: " + (dealer.getIsContinuing() == true ? "Cotinuing" : "Uncontinuing"));
+        System.out.println(String.format(
+            FORMAT, 
+            dealer.getDealerID(),
+            dealer.getDealerName(),
+            dealer.getDealerHouseNumber(),
+            dealer.getDealerStreetName(),
+            dealer.getDealerNumber(),
+            dealer.getIsContinuing()));    
     }
 }

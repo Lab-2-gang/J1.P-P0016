@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import Persistance.Dealer.Dealer;
+import Persistance.Entity.Dealer.Dealer;
 import Persistance.Tool.IReadFile;
 import Persistance.Tool.ReadFile;
 import Persistance.Tool.ReadFileTool;

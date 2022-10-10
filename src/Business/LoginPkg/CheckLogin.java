@@ -1,8 +1,8 @@
 package Business.LoginPkg;
 
 import Persistance.Database;
-import Persistance.Account.Account;
-import Persistance.Account.AccountType;
+import Persistance.Entity.Account.Account;
+import Persistance.Entity.Account.AccountType;
 
 
 public class CheckLogin implements ICheckLogin

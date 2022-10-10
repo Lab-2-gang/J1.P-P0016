@@ -5,7 +5,8 @@ import Presentation.Tools.Message;
 
 import java.util.ArrayList;
 
-import Persistance.Dealer.Dealer;
+import Persistance.Entity.Dealer.Dealer;
+
 
 
 public class PrintAllContinuingDealers implements IPrint

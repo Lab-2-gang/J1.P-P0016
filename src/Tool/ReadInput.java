@@ -6,6 +6,7 @@ public class ReadInput {
     // scanner
     private static final Scanner readInput = new Scanner(System.in);
 
+    
     // read input as string
     public static String ReadUserInput()
     {
@@ -20,6 +21,7 @@ public class ReadInput {
         }
     }
 
+
     // convert input to int
     public static Integer ConvertToInteger(String input)
     {
@@ -33,6 +35,7 @@ public class ReadInput {
             return null;
         }
     }
+
 
     // convert input
     public static Float ConvertToFloat(String input)

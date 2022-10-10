@@ -5,8 +5,8 @@ import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import Persistance.Account.Account;
-import Persistance.Account.AccountType;
+import Persistance.Entity.Account.Account;
+import Persistance.Entity.Account.AccountType;
 import Persistance.Tool.IReadFile;
 import Persistance.Tool.ReadFile;
 import Persistance.Tool.ReadFileTool;

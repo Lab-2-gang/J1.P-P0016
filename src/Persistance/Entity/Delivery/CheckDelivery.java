@@ -1,5 +1,8 @@
-package Persistance.Delivery;
+package Persistance.Entity.Delivery;
+
 import Tool.PatternCheck;
+
+
 public class CheckDelivery {
     //check delivery id format
     public static boolean checkDeliveryID(String deliveryID) {

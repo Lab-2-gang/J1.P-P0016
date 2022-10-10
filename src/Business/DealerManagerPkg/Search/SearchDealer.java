@@ -2,7 +2,7 @@ package Business.DealerManagerPkg.Search;
 
 import java.util.ArrayList;
 
-import Persistance.Dealer.Dealer;
+import Persistance.Entity.Dealer.Dealer;
 import Presentation.Tools.Color;
 import Presentation.Tools.Message;
 import Tool.PatternCheck;

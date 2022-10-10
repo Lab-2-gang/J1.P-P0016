@@ -2,11 +2,8 @@ package Business.DealerManagerPkg.Remove;
 
 import java.util.Collections;
 import java.util.Iterator;
-
-import Persistance.Dealer.Dealer;
-
+import Persistance.Entity.Dealer.Dealer;
 import java.util.ArrayList;
-
 import Presentation.Tools.Color;
 import Presentation.Tools.Message;
 import Tool.PatternCheck;
@@ -67,7 +64,8 @@ public class RemoveDealer implements IRemoveDealer
             // input is empty
             isNullOrBlank = true;
         }
-        else if (PatternCheck.Check(DEALER_ID, dealerID) != true)
+
+        if (PatternCheck.Check(DEALER_ID, dealerID) != true)
         {
             // invalid format
             isDealerIDFormatValid = true;
@@ -90,7 +88,7 @@ public class RemoveDealer implements IRemoveDealer
 
                 if (currentDealer == null)
                 {
-                    throw new NullPointerException("Accessing null in dealers database");
+                    // sth wrong
                 }
 
                 if (currentDealer.getDealerID().equals(dealerID) == true)
