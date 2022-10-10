@@ -7,7 +7,7 @@ import Presentation.Tools.Message;
 
 public class GetTwoChoice
 {
-    public static boolean getTwoChoice(String message, String option1, String option2)
+    public static Boolean getTwoChoice(String message, String option1, String option2)
     {
         Scanner scanner = new Scanner(System.in);
 
@@ -46,6 +46,7 @@ public class GetTwoChoice
             catch (Exception e)
             {
                 Message.showMessage("Please enter between 1 or 2. Please enter again.", Color.RED);
+                return null;
             }
         }
     }
