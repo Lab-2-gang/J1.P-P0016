@@ -1,7 +1,8 @@
 package Business.DealerManagerPkg.Add;
 
 import java.util.ArrayList;
-import Database.Dealer.Dealer;
+
+import Persistance.Dealer.Dealer;
 
 
 public interface IAddDealer

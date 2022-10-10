@@ -1,14 +1,14 @@
-package Database;
+package Persistance;
 
 import java.util.ArrayList;
 
-import Database.Account.Account;
-import Database.Dealer.Dealer;
-import Database.Delivery.Delivery;
-import Database.ReadFile.IReadDatabase;
-import Database.ReadFile.ReadAccountFile;
-import Database.ReadFile.ReadDealerFile;
-import Database.ReadFile.ReadDeliveryFile;
+import Persistance.Account.Account;
+import Persistance.Dealer.Dealer;
+import Persistance.Delivery.Delivery;
+import Persistance.ReadFile.IReadDatabase;
+import Persistance.ReadFile.ReadAccountFile;
+import Persistance.ReadFile.ReadDealerFile;
+import Persistance.ReadFile.ReadDeliveryFile;
 import Tool.DatabaseType;
 
 

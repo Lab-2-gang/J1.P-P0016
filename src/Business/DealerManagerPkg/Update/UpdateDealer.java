@@ -1,8 +1,13 @@
 package Business.DealerManagerPkg.Update;
 
 import java.util.Collections;
+
+import Persistance.Dealer.Dealer;
+
 import java.util.ArrayList;
-import Database.Dealer.Dealer;
+
+import Presentation.Tools.Color;
+import Presentation.Tools.Message;
 import Tool.PatternCheck;
 import Tool.ReadInput;
 
@@ -23,17 +28,21 @@ public class UpdateDealer implements IUpdateDealer
             return;
         }
 
+        Message.showMessage("UPDATE A DEALER BY ID", Color.YELLOW_BACKGROUND);
+
         System.out.print("Enter dealer's ID: ");
         String dealerID = ReadInput.ReadUserInput();
 
         if (CheckDealerID(dealerID) != true)
         {
             // invalid dealerID
+            Message.showMessage("Invalid dealer's ID", Color.RED);
             return;
         }
         else if (CheckDealerExist(dealerID, dealers) != true)
         {
             // dealer does not exist to update
+            Message.showMessage("Dealer does not exist!", Color.RED);
             return;
         }
         
@@ -45,6 +54,7 @@ public class UpdateDealer implements IUpdateDealer
         if (CheckDealerID(dealerIDUpdate) != true)
         {
             // invalid dealerID
+            Message.showMessage("Invalid dealer's ID", Color.RED);
             return;
         }
         
@@ -54,6 +64,7 @@ public class UpdateDealer implements IUpdateDealer
         if (dealerNameUpdate == null || dealerNameUpdate.isBlank() == true)
         {
             // invalid dealer name
+            Message.showMessage("Invalid dealer's name", Color.RED);
             return;
         }
         
@@ -63,11 +74,13 @@ public class UpdateDealer implements IUpdateDealer
         if (dealerHouseNumberUpdate == null || dealerHouseNumberUpdate.isBlank() == true)
         {
             // invalid dealer house
+            Message.showMessage("Invalid dealer's house number", Color.RED);
             return;
         }
         if (PatternCheck.Check(DEALER_HOUSENUMBER, dealerHouseNumberUpdate) != true)
         {
             // wrong house number format
+            Message.showMessage("Wrong dealer's house number format", Color.RED);
             return;
         }
         
@@ -77,6 +90,7 @@ public class UpdateDealer implements IUpdateDealer
         if (dealerStreetUpdate == null || dealerStreetUpdate.isBlank() == true)
         {
             // invalid dealer street
+            Message.showMessage("Invalid dealer's street", Color.RED);
             return;
         }
         
@@ -93,10 +107,12 @@ public class UpdateDealer implements IUpdateDealer
         if (isUpdate == true)
         {
             // update successful
+            Message.showMessage("Update successful!", Color.BLUE);
         }
         else
         {
             // failed to update
+            Message.showMessage("Cannot update", Color.RED);
         }
     }
     

@@ -1,8 +1,13 @@
 package Business.DealerManagerPkg.Add;
 
 import java.util.Collections;
+
+import Persistance.Dealer.Dealer;
+
 import java.util.ArrayList;
-import Database.Dealer.Dealer;
+
+import Presentation.Tools.Color;
+import Presentation.Tools.Message;
 import Tool.PatternCheck;
 import Tool.ReadInput;
 
@@ -17,6 +22,8 @@ public class AddDealer implements IAddDealer
     // get dealer to add
     public void Add(ArrayList<Dealer> dealers)
     {
+        Message.showMessage("ADD A NEW DEALER", Color.YELLOW);
+
         System.out.print("Enter dealer's ID: ");
         String dealerID = ReadInput.ReadUserInput();
 
@@ -66,6 +73,9 @@ public class AddDealer implements IAddDealer
             dealerHouseNumber,
             true),
             dealers);
+
+        Message.showMessage("Added!", Color.BLUE);
+        Message.showMessage("Go back to main menu...", Color.BLUE);
     }
     
     

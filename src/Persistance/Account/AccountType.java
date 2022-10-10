@@ -1,4 +1,4 @@
-package Database.Account;
+package Persistance.Account;
 
 
 public enum AccountType

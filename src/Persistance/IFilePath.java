@@ -1,4 +1,4 @@
-package Database;
+package Persistance;
 
 import Tool.DatabaseType;
 

@@ -1,4 +1,4 @@
-package Database.Dealer;
+package Persistance.Dealer;
 import Tool.PatternCheck;
 public class CheckDealer {
  //check dealer id format

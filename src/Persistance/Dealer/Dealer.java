@@ -1,4 +1,4 @@
-package Database.Dealer;
+package Persistance.Dealer;
 
 
 public class Dealer

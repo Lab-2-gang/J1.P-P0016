@@ -1,7 +1,11 @@
 package Business.DealerManagerPkg.Print;
 
-import Database.Dealer.Dealer;
+import Presentation.Tools.Color;
+import Presentation.Tools.Message;
+
 import java.util.ArrayList;
+
+import Persistance.Dealer.Dealer;
 
 
 public class PrintAllContinuingDealers implements IPrint
@@ -12,9 +16,12 @@ public class PrintAllContinuingDealers implements IPrint
         if (dealers.isEmpty() == true)
         {
             // empty list
+            Message.showMessage("Empty list!", Color.RED);
             return;
         }
         
+        Message.showMessage("LIST OF ALL CONTINUING DEALERS", Color.YELLOW_BACKGROUND);
+
         for (Dealer dealer : dealers)
         {
             if (dealer.getIsContinuing() == true)

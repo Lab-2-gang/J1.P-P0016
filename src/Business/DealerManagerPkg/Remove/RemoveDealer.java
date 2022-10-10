@@ -2,8 +2,13 @@ package Business.DealerManagerPkg.Remove;
 
 import java.util.Collections;
 import java.util.Iterator;
+
+import Persistance.Dealer.Dealer;
+
 import java.util.ArrayList;
-import Database.Dealer.Dealer;
+
+import Presentation.Tools.Color;
+import Presentation.Tools.Message;
 import Tool.PatternCheck;
 import Tool.ReadInput;
 
@@ -20,8 +25,11 @@ public class RemoveDealer implements IRemoveDealer
         if (dealers.isEmpty() == true)
         {
             // database is empty
+            Message.showMessage("Empty database!", Color.RED);
             return;
         }
+
+        Message.showMessage("REMOVE A DEALER BY ID", Color.YELLOW_BACKGROUND);
         
         System.out.print("Enter dealer's ID: ");
         String dealerID = ReadInput.ReadUserInput();
@@ -29,6 +37,7 @@ public class RemoveDealer implements IRemoveDealer
         if (CheckDealerID(dealerID) != true)
         {
             // invalid dealer ID
+            Message.showMessage("Invalid dealer ID", Color.RED);
             return;
         }
         
@@ -37,10 +46,12 @@ public class RemoveDealer implements IRemoveDealer
         if (isRemoved == true)
         {
             // remove successful
+            Message.showMessage("Remove successful!", Color.BLUE);
         }
         else
         {
             // failed to remove
+            Message.showMessage("Remove failed!", Color.BLUE);
         }
     }
     

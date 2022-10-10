@@ -1,6 +1,6 @@
 package Business.LoginPkg;
 
-import Database.Account.AccountType;
+import Persistance.Account.AccountType;
 
 
 public interface ICheckLogin

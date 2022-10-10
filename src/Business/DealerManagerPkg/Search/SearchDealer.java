@@ -1,7 +1,10 @@
 package Business.DealerManagerPkg.Search;
 
 import java.util.ArrayList;
-import Database.Dealer.Dealer;
+
+import Persistance.Dealer.Dealer;
+import Presentation.Tools.Color;
+import Presentation.Tools.Message;
 import Tool.PatternCheck;
 import Tool.ReadInput;
 
@@ -20,6 +23,8 @@ public class SearchDealer implements ISearchDealer
             // database is empty
             return null;
         }
+
+        Message.showMessage("SEARCH A DEALER BY ID", Color.YELLOW);
         
         System.out.print("Enter dealer's ID: ");
         String dealerID = ReadInput.ReadUserInput();
@@ -37,6 +42,8 @@ public class SearchDealer implements ISearchDealer
             // dealer cannot be found
             return null;
         }
+
+        Message.showMessage("Found!", Color.BLUE);
         
         return resultFromSearch;
     }

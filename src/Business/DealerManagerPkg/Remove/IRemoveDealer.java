@@ -1,7 +1,8 @@
 package Business.DealerManagerPkg.Remove;
 
 import java.util.ArrayList;
-import Database.Dealer.Dealer;
+
+import Persistance.Dealer.Dealer;
 
 
 public interface IRemoveDealer

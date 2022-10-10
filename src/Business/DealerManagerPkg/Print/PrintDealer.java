@@ -1,6 +1,6 @@
 package Business.DealerManagerPkg.Print;
 
-import Database.Dealer.Dealer;
+import Persistance.Dealer.Dealer;
 
 
 public class PrintDealer

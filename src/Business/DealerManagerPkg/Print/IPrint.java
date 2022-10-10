@@ -1,7 +1,8 @@
 package Business.DealerManagerPkg.Print;
 
 import java.util.ArrayList;
-import Database.Dealer.Dealer;
+
+import Persistance.Dealer.Dealer;
 
 
 public interface IPrint

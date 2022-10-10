@@ -1,4 +1,4 @@
-package Database.Config;
+package Persistance.Config;
 
 import java.util.HashMap;
 import Tool.DatabaseType;

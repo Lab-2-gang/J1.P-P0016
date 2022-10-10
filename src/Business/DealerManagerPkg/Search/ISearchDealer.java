@@ -1,7 +1,8 @@
 package Business.DealerManagerPkg.Search;
 
 import java.util.ArrayList;
-import Database.Dealer.Dealer;
+
+import Persistance.Dealer.Dealer;
 
 
 public interface ISearchDealer

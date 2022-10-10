@@ -1,4 +1,4 @@
-package Database.Delivery;
+package Persistance.Delivery;
 import Tool.PatternCheck;
 public class CheckDelivery {
     //check delivery id format

@@ -12,6 +12,8 @@ public class DealerMenu
     // public getMenu() return menuList
     public DealerMenu()
     {
+        // Other for quit
+        // Choose 1-8 to do the function
         menuList.add("1. Add new dealer");
         menuList.add("2. Search a dealer");
         menuList.add("3. Remove a dealer");
@@ -20,8 +22,6 @@ public class DealerMenu
         menuList.add("6. Print continuing dealers");
         menuList.add("7. Print UN-continuing dealers");
         menuList.add("8. Write to file");
-        // Other for quit
-        // Choose 1-8 to do the function
         menuList.add("Others for quit");
     }
 

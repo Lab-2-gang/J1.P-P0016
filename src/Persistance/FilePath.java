@@ -1,8 +1,9 @@
-package Database;
+package Persistance;
 
 import java.util.HashMap;
-import Database.Config.IReadConfigFile;
-import Database.Config.ReadConfigFile;
+
+import Persistance.Config.IReadConfigFile;
+import Persistance.Config.ReadConfigFile;
 import Tool.DatabaseType;
 
 

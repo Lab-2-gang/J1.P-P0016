@@ -3,7 +3,7 @@
 import Business.Business;
 import Business.LoginPkg.*;
 import Tool.ReadInput;
-import Database.Account.*;
+import Persistance.Account.AccountType;
 
 public class Program {
 
@@ -246,4 +246,95 @@ public class Program {
             }
         }
     }
+    // public static void main(String[] args)
+    // {
+    //     Message.showMessage("WELCOME TO DEALER MANAGEMENT PROGRAM", Color.PURPLE);
+
+    //     DealerManager dealerManager = new DealerManager();
+    //     DealerMenu menu = new DealerMenu();
+        
+    //     int choice;
+
+    //     do
+    //     {
+    //         switch (choice)
+    //         {
+    //             case 1:
+    //                 do
+    //                 {
+    //                     Message.showMessage("Add a new dealer".toUpperCase(), Color.YELLOW);
+    //                     IAddDealer addDealer = new AddDealer();
+    //                     addDealer.Add(business.GetDealerDatabase());
+    //                 }
+    //                 while (CheckDealer.getTwoChoice("Do you want to continue adding another dealer?", "Yes", "Go back to main menu"))
+    //                 {
+    //                     Message.showMessage("Go back to main menu...", Color.BLUE);
+    //                     break;
+    //                 }
+                    
+    //             case 2: 
+    //                 do
+    //                 {
+    //                     Message.showMessage("Search a dealer by id".toUpperCase(), Color.YELLOW);
+    //                     ISearchDealer searchDealer = new SearchDealer();
+    //                     searchDealer.Search(business.GetDealerDatabase());
+    //                 }
+    //                 while (dealerManager.isEmpty() == false && CheckDealer.getTwoChoice("Do you want to continue searching another dealer?", "Yes", "Go back to main menu"));
+    //                 Message.showMessage("Go back to main menu...", Color.BLUE);
+    //                 break;
+    //             case 3:
+    //                 do {
+    //                 Message.showMessage("Remove a dealer by id".toUpperCase(), Color.YELLOW_BACKGROUND);
+    //                 IRemoveDealer removeDealer = new RemoveDealer();
+    //                 removeDealer.RemoveDealer(business.GetDealerDatabase());
+    //                 } while (!dlm.isEmpty()
+    //                             && CheckDealer.getTwoChoice("Do you want to continue removing another dealer?", "Yes", "Go back to main menu"));
+    //                 Message.showMessage("Go back to main menu...", Color.BLUE);
+    //                 break;
+    //             case 4:
+    //                 do {
+    //                 Message.showMessage("Update a dealer by id".toUpperCase(), Color.YELLOW_BACKGROUND);
+    //                 IUpdateDealer updateDealer = new UpdateDealer();
+    //                 updateDealer.UpdateDealer(business.GetDealerDatabase());
+    //                 } while (!dlm.isEmpty()
+    //                             && CheckDealer.getTwoChoice("Do you want to continue updating another dealer?", "Yes", "Go back to main menu"));
+    //                 Message.showMessage("Go back to main menu...", Color.BLUE);
+    //                 break;
+    //             case 5:
+    //                 Message.showMessage("List of all dealers".toUpperCase(), Color.YELLOW_BACKGROUND);
+    //                 IPrint printDealer = new PrintAllDealers();
+    //                 printDealer.PrintAllDealers(business.GetDealerDatabase());
+    //                 break;
+    //             case 6:
+    //                 Message.showMessage("List of all continuing dealers".toUpperCase(), Color.YELLOW_BACKGROUND);
+    //                 IPrint printCDealer = new PrintAllContinuingDealers();
+    //                 printCDealer.PrintAllContinuingDealers(business.GetDealerDatabase());
+    //                 break;
+    //             case 7:
+    //                 Message.showMessage("List of all un-continuing dealers".toUpperCase(), Color.YELLOW_BACKGROUND);
+    //                 IPrint printUDealer = new PrintAllUncontinuingDealers();
+    //                 printUDealer.PrintAllUncontinuingDealers(business.GetDealerDatabase());
+    //                 break;
+    //             case 8:
+    //             Message.showMessage("Write to file".toUpperCase(), Color.YELLOW);
+    //             if (dlm.isEmpty()) {
+    //                 Message.showMessage("The list of dealers is empty now!".toUpperCase(), Color.BLUE);
+    //             } else if(CheckDealer.getTwoChoice("Do you want to preview data of dealers before saving?", "Yes", "No")) {
+    //                 Message.showMessage("Previewing data of dealers".toUpperCase(), Color.WHITE);
+    //                 IPrint printDealer = new PrintAllDealers();
+    //                 printDealer.PrintAllDealers(business.GetDealerDatabase());
+    //             } 
+    //             Message.showMessage("Are you sure want to save?".toUpperCase(), Color.BLUE);
+    //             if (CheckDealer.getTwoChoice("Please choose an option", "Yes", "No")) {
+    //                 //tui ko tìm thấy cái lưu ở đâu
+    //             }
+    //                 break;
+                
+            
+            
+    //         }
+
+    //     }while(choice > 0 && choice <= menu.size());
+    //     Message.showMessage("Thank you for using".toUpperCase(),Color.PURPLE );
+    // }
 }

@@ -1,4 +1,4 @@
-package Database.Tool;
+package Persistance.Tool;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

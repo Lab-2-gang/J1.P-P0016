@@ -1,12 +1,12 @@
-package Database.Config;
+package Persistance.Config;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
-import Database.Tool.IReadFile;
-import Database.Tool.ReadFile;
-import Database.Tool.ReadFileTool;
+import Persistance.Tool.IReadFile;
+import Persistance.Tool.ReadFile;
+import Persistance.Tool.ReadFileTool;
 import Tool.DatabaseType;
 
 

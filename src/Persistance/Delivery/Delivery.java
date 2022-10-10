@@ -1,4 +1,4 @@
-package Database.Delivery;
+package Persistance.Delivery;
 
 
 public class Delivery
