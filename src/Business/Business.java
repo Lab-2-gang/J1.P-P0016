@@ -1,16 +1,11 @@
 package Business;
 
 import Business.DealerManagerPkg.*;
-import Database.Database;
 import Database.Account.AccountType;
 
 
 public class Business
 {
-    // database
-    Database database = new Database();
-
-
     // delegate business
     public void BusinessDelegate(AccountType type)
     {
@@ -23,7 +18,7 @@ public class Business
 
             case Dealer ->
             {
-                IDealerManager dealerManager = new DealerManager(database.GetDealerDatabase());
+                IDealerManager dealerManager = new DealerManager();
                 dealerManager.DealerManagerMenu();
             }
 
@@ -32,12 +27,5 @@ public class Business
                 // TO-DO
             }
         }
-    }
-
-
-    // get, set
-    public Database getDatabase()
-    {
-        return database;
     }
 }

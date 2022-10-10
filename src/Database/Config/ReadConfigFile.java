@@ -12,10 +12,9 @@ import Tool.DatabaseType;
 public class ReadConfigFile implements IReadConfigFile
 {
     // indicators for config file
-    private final String ACCOUNTS_PATH_INDICATOR = "accounts_path";
-    private final String DEALERS_PATH_INDICATOR = "dealers_path";
-    private final String DELIVERIES_PATH_INDICATOR = "deliveries_path";
-    private final String PRODUCTS_PATH_INDICATOR = "products_path";
+    private final String ACCOUNTS_PATH_INDICATOR = "Path to accounts: ";
+    private final String DEALERS_PATH_INDICATOR = "Path to dealers: ";
+    private final String DELIVERIES_PATH_INDICATOR = "Path to deliveries: ";
 
     
     // delim
@@ -92,11 +91,6 @@ public class ReadConfigFile implements IReadConfigFile
             case DELIVERIES_PATH_INDICATOR ->
             {
                 filePaths.put(DatabaseType.Deliveries, ReadFileTool.GetNextToken(tokenizer));
-            }
-            
-            case PRODUCTS_PATH_INDICATOR ->
-            {
-                filePaths.put(DatabaseType.Products, ReadFileTool.GetNextToken(tokenizer));
             }
             
             default ->

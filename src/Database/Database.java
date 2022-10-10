@@ -12,8 +12,12 @@ import Database.ReadFile.ReadDeliveryFile;
 import Tool.DatabaseType;
 
 
-public class Database implements IDatabase
+public class Database
 {
+    // private Database object
+    private static Database database = null;
+
+
     // path to config file
     private final String PATH_TO_CONFIG_FILE = "config.dat";
     
@@ -28,8 +32,27 @@ public class Database implements IDatabase
     private final ArrayList<Delivery> deliveryDatabase;
     
     
+    public static Database GetDatabase()
+    {
+        Database local = database;
+
+        if (local == null)
+        {
+            synchronized(Database.class)
+            {
+                if (local == null)
+                {
+                    local = database = new Database();
+                }
+            }
+        }
+
+        return local;
+    }
+
+
     // private constructor
-    public Database()
+    private Database()
     {
         filePaths.InitiateFilePath(PATH_TO_CONFIG_FILE);
         
@@ -45,19 +68,18 @@ public class Database implements IDatabase
     
     
     // get
-    @Override
     public ArrayList<Account> GetAccountDatabase()
     {
         return accountDatabse;
     }
 
-    @Override
+
     public ArrayList<Dealer> GetDealerDatabase()
     {
         return dealerDatabase;
     }
 
-    @Override
+
     public ArrayList<Delivery> GetDeliveryDatabase()
     {
         return deliveryDatabase;

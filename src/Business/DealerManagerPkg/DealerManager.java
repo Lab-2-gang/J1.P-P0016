@@ -5,30 +5,12 @@ import Business.DealerManagerPkg.Print.*;
 import Business.DealerManagerPkg.Remove.*;
 import Business.DealerManagerPkg.Search.*;
 import Business.DealerManagerPkg.Update.*;
-import Database.Dealer.Dealer;
-import java.util.ArrayList;
+import Database.Database;
 import Tool.ReadInput;
 
 
 public class DealerManager implements IDealerManager
 {
-    // dealers database
-    private ArrayList<Dealer> dealers;
-
-
-    // constructor to add database from Business
-    public DealerManager(ArrayList<Dealer> dealers)
-    {
-        if (dealers == null)
-        {
-            // empty database
-            this.dealers = null;
-        }
-
-        this.dealers = dealers;
-    }
-
-
     // menu + get user input
     public void DealerManagerMenu()
     {
@@ -104,43 +86,43 @@ public class DealerManager implements IDealerManager
             case Add ->
             {
                 IAddDealer addDealer = new AddDealer();
-                addDealer.Add(dealers);
+                addDealer.Add(Database.GetDatabase().GetDealerDatabase());
             }
 
             case Search ->
             {
                 ISearchDealer searchDealer = new SearchDealer();
-                searchDealer.Search(dealers);
+                searchDealer.Search(Database.GetDatabase().GetDealerDatabase());
             }
 
             case Remove ->
             {
                 IRemoveDealer removeDealer = new RemoveDealer();
-                removeDealer.Remove(dealers);
+                removeDealer.Remove(Database.GetDatabase().GetDealerDatabase());
             }
 
             case Update ->
             {
                 IUpdateDealer updateDealer = new UpdateDealer();
-                updateDealer.Update(dealers);
+                updateDealer.Update(Database.GetDatabase().GetDealerDatabase());
             }
 
             case PrintAll ->
             {
                 IPrint printAll = new PrintAllDealers();
-                printAll.Print(dealers);
+                printAll.Print(Database.GetDatabase().GetDealerDatabase());
             }
 
             case PrintContinuing ->
             {
                 IPrint printContinuing = new PrintAllContinuingDealers();
-                printContinuing.Print(dealers);
+                printContinuing.Print(Database.GetDatabase().GetDealerDatabase());
             }
 
             case PrintUncontinuing ->
             {
                 IPrint printUncontinuing = new PrintAllUncontinuingDealers();
-                printUncontinuing.Print(dealers);
+                printUncontinuing.Print(Database.GetDatabase().GetDealerDatabase());
             }
 
             case WriteToFile ->

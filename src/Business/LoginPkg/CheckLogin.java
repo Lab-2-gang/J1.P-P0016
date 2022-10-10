@@ -8,7 +8,7 @@ import Database.Account.AccountType;
 public class CheckLogin implements ICheckLogin
 {
     // check login using database
-    public AccountType checkLogin(String[] login, ArrayList<Account> accounts)
+    public AccountType Check(String[] login, ArrayList<Account> accounts)
     {
         for (Account account : accounts)
         {

@@ -7,5 +7,5 @@ import Database.Account.AccountType;
 
 public interface ICheckLogin
 {
-    public AccountType checkLogin(String[] login, ArrayList<Account> accounts);
+    public AccountType Check(String[] login, ArrayList<Account> accounts);
 }

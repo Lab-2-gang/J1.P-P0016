@@ -3,6 +3,7 @@
 import Business.Business;
 import Business.LoginPkg.*;
 import Tool.ReadInput;
+import Database.Database;
 import Database.Account.*;
 
 public class Program {
@@ -174,8 +175,8 @@ public class Program {
 
     public static void main(String[] args)
     {
-        final Business business = new Business();
-
+        Business business = new Business();
+        
         while (true)
         {
             System.out.println("===============================================");
@@ -205,8 +206,8 @@ public class Program {
                     }
 
                     ICheckLogin checkLogin = new CheckLogin();
-                    AccountType accountType = checkLogin.checkLogin(userLoginInformation, 
-                        business.getDatabase().GetAccountDatabase());
+                    AccountType accountType = checkLogin.Check(userLoginInformation, 
+                        Database.GetDatabase().GetAccountDatabase());
 
                     if (accountType == null)
                     {
