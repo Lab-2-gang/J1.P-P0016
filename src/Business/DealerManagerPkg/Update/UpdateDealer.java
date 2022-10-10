@@ -1,6 +1,7 @@
 package Business.DealerManagerPkg.Update;
 
 import java.util.Collections;
+import Persistance.Database;
 import Persistance.Entity.Dealer.Dealer;
 import java.util.ArrayList;
 import Presentation.Tools.Color;
@@ -17,9 +18,9 @@ public class UpdateDealer implements IUpdateDealer
     
     
     // get user input to update
-    public void Update(ArrayList<Dealer> dealers)
+    public void Update()
     {
-        if (dealers.isEmpty() == true)
+        if (Database.GetDatabase().GetDealerDatabase().isEmpty() == true)
         {
             // empty database
             return;
@@ -36,7 +37,7 @@ public class UpdateDealer implements IUpdateDealer
             Message.showMessage("Invalid dealer's ID", Color.RED);
             return;
         }
-        else if (CheckDealerExist(dealerID, dealers) != true)
+        else if (CheckDealerExist(dealerID) != true)
         {
             // dealer does not exist to update
             Message.showMessage("Dealer does not exist!", Color.RED);
@@ -99,7 +100,7 @@ public class UpdateDealer implements IUpdateDealer
             dealerHouseNumberUpdate,
             true);
         
-        Boolean isUpdate = UpdateDealerToDatabase(dealer, dealers);
+        Boolean isUpdate = UpdateDealerToDatabase(dealer);
         
         if (isUpdate == true)
         {
@@ -125,9 +126,9 @@ public class UpdateDealer implements IUpdateDealer
     
     
     // check for the existence of dealer before adding
-    public Boolean CheckDealerExist(String dealerID, ArrayList<Dealer> dealers)
+    public Boolean CheckDealerExist(String dealerID)
     {
-        for (Dealer dealer : dealers)
+        for (Dealer dealer : Database.GetDatabase().GetDealerDatabase())
         {
             if (dealer.getDealerID().equals(dealerID) == true)
             {
@@ -140,8 +141,10 @@ public class UpdateDealer implements IUpdateDealer
     
     
     // add dealer to database
-    private Boolean UpdateDealerToDatabase(Dealer dealer, ArrayList<Dealer> dealers)
+    private Boolean UpdateDealerToDatabase(Dealer dealer)
     {
+        ArrayList<Dealer> dealers = Database.GetDatabase().GetDealerDatabase();
+
         for (Dealer traverseDealer : dealers)
         {
             if (traverseDealer.getDealerID().equals(dealer.getDealerID()) == true)

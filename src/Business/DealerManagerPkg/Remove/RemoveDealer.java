@@ -2,8 +2,8 @@ package Business.DealerManagerPkg.Remove;
 
 import java.util.Collections;
 import java.util.Iterator;
+import Persistance.Database;
 import Persistance.Entity.Dealer.Dealer;
-import java.util.ArrayList;
 import Presentation.Tools.Color;
 import Presentation.Tools.Message;
 import Tool.PatternCheck;
@@ -17,9 +17,9 @@ public class RemoveDealer implements IRemoveDealer
     
     
     // get user input to remove
-    public void Remove(ArrayList<Dealer> dealers)
+    public void Remove()
     {
-        if (dealers.isEmpty() == true)
+        if (Database.GetDatabase().GetDealerDatabase().isEmpty() == true)
         {
             // database is empty
             Message.showMessage("Empty database!", Color.RED);
@@ -38,7 +38,7 @@ public class RemoveDealer implements IRemoveDealer
             return;
         }
         
-        Boolean isRemoved = RemoveDealerFromDatabase(dealerID, dealers);
+        Boolean isRemoved = RemoveDealerFromDatabase(dealerID);
         
         if (isRemoved == true)
         {
@@ -76,9 +76,9 @@ public class RemoveDealer implements IRemoveDealer
 
     
     // remove dealer from database
-    private Boolean RemoveDealerFromDatabase(String dealerID, ArrayList<Dealer> dealers)
+    private Boolean RemoveDealerFromDatabase(String dealerID)
     {
-        Iterator<Dealer> dealersIterator = dealers.iterator();
+        Iterator<Dealer> dealersIterator = Database.GetDatabase().GetDealerDatabase().iterator();
         
         try
         {
@@ -95,7 +95,7 @@ public class RemoveDealer implements IRemoveDealer
                 {
                     dealersIterator.remove();
                     
-                    Collections.sort(dealers, (dealer1, dealer2) ->
+                    Collections.sort(Database.GetDatabase().GetDealerDatabase(), (dealer1, dealer2) ->
                         {
                             return dealer1.getDealerID().compareTo(dealer2.getDealerID());
                         });

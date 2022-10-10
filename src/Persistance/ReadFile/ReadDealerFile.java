@@ -17,9 +17,9 @@ public class ReadDealerFile implements IReadDatabase<Dealer>
     // const format
     private final String ID_FORMAT = "^D\\d{3}$";
     private final String PHONE_NUMBER_FORMAT = "^\\d{9}$|^\\d{11}$";
+    private final String DEALER_HOUSENUMBER = "[\\W_]&&[^/]";
     private final String TRUE = "^true$";
     private final String FALSE = "^false$";
-
     
     
     // const delim
@@ -108,15 +108,19 @@ public class ReadDealerFile implements IReadDatabase<Dealer>
     private Boolean CheckDealer(String[] dealer)
     {
         Boolean isNullOrBlank = false;
-        Boolean isDealerIDValid = false; 
+        Boolean isDealerIDValid = false;
+        Boolean isDealerHouseNumberValid = false;
         Boolean isDealerPhoneNumberValid = false; 
         Boolean isDealerContinuingValid = false; 
               
         try
         {
             isDealerIDValid = PatternCheck.Check(ID_FORMAT, dealer[0]) == true;
-            isDealerPhoneNumberValid = PatternCheck.Check(PHONE_NUMBER_FORMAT, dealer[5]) == true;
-            isDealerContinuingValid = PatternCheck.Check(TRUE, dealer[6]) == true || PatternCheck.Check(FALSE, dealer[6]) == true;
+            isDealerPhoneNumberValid = PatternCheck.Check(PHONE_NUMBER_FORMAT, dealer[4]) == true;
+            isDealerContinuingValid = PatternCheck.Check(TRUE, dealer[5]) == true
+                || PatternCheck.Check(FALSE, dealer[5]) == true;
+            
+            isDealerHouseNumberValid = PatternCheck.Check(DEALER_HOUSENUMBER, dealer[2]) != true;
             
             for (String item : dealer)
             {
@@ -132,18 +136,26 @@ public class ReadDealerFile implements IReadDatabase<Dealer>
             // error null pointer
         }
         
-        return isNullOrBlank == false && isDealerIDValid == true
-            && isDealerPhoneNumberValid == true && isDealerContinuingValid == true;
+        return isNullOrBlank == false
+            && isDealerIDValid == true
+            && isDealerPhoneNumberValid == true
+            && isDealerContinuingValid == true
+            && isDealerHouseNumberValid == true;
     }
 
+
+    // check duplicate dealer
     private Boolean CheckDuplicateDealer(ArrayList<Dealer> dealers)
     {
         Iterator<Dealer> deliveriesIterator = dealers.iterator();
-        String checkID = deliveriesIterator.hasNext() == true ? deliveriesIterator.next().getDealerID(): null;
+
+        String checkID = deliveriesIterator.hasNext() == true ?
+            deliveriesIterator.next().getDealerID() : null;
         
         while (checkID != null)
         {
-            String afterCheckID = deliveriesIterator.hasNext() == true ? deliveriesIterator.next().getDealerID(): null;
+            String afterCheckID = deliveriesIterator.hasNext() == true ?
+                deliveriesIterator.next().getDealerID() : null;
             
             if (checkID.equals(afterCheckID) == true)
             {

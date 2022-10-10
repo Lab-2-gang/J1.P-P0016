@@ -2,7 +2,8 @@ package Tool;
 
 import java.util.Scanner;
 
-public class ReadInput {
+public class ReadInput
+{
     // scanner
     private static final Scanner readInput = new Scanner(System.in);
 

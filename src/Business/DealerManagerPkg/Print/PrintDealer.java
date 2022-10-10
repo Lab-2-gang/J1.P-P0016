@@ -5,7 +5,9 @@ import Persistance.Entity.Dealer.Dealer;
 
 public class PrintDealer
 {
-    private final static String FORMAT = "|%-10s|%-10s|%-20s|%-15s|%-10s|";
+    private final static String FORMAT = "| %-4s | %-30s | %-10s | %-30s | %-15s | %-6s |";
+
+
     // print single dealer
     public static void Print(Dealer dealer)
     {

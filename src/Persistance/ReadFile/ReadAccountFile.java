@@ -68,11 +68,11 @@ public class ReadAccountFile implements IReadDatabase<Account>
                 
                 switch (account[2])
                 {
-                    case "BOSS" -> accounts.add(new Account(account[0], account[1], AccountType.Boss));
+                    case "Boss" -> accounts.add(new Account(account[0], account[1], AccountType.Boss));
                     
-                    case "DEALER_MANAGER" -> accounts.add(new Account(account[0], account[1], AccountType.Dealer));
+                    case "Dealer" -> accounts.add(new Account(account[0], account[1], AccountType.Dealer));
                     
-                    case "DELIVERY_MANAGER" -> accounts.add(new Account(account[0], account[1], AccountType.Delivery));
+                    case "Delivery" -> accounts.add(new Account(account[0], account[1], AccountType.Delivery));
                     
                     default ->
                     {

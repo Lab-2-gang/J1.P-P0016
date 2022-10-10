@@ -13,9 +13,9 @@ import Tool.DatabaseType;
 public class ReadConfigFile implements IReadConfigFile
 {
     // indicators for config file
-    private final String ACCOUNTS_PATH_INDICATOR = "Path to accounts:";
-    private final String DEALERS_PATH_INDICATOR = "Path to dealers:";
-    private final String DELIVERIES_PATH_INDICATOR = "Path to deliveries:";
+    private final String ACCOUNTS_PATH_INDICATOR = "Path to accounts";
+    private final String DEALERS_PATH_INDICATOR = "Path to dealers";
+    private final String DELIVERIES_PATH_INDICATOR = "Path to deliveries";
 
     
     // delim

@@ -5,7 +5,6 @@ import Business.DealerManagerPkg.Print.*;
 import Business.DealerManagerPkg.Remove.*;
 import Business.DealerManagerPkg.Search.*;
 import Business.DealerManagerPkg.Update.*;
-import Persistance.Database;
 import Presentation.Menu.DealerMenu;
 import Presentation.Menu.PrintMenu;
 import Tool.ReadInput;
@@ -32,6 +31,8 @@ public class DealerManager implements IDealerManager
                 // invalid input
                 continue;
             }
+
+            System.out.println();
 
             switch (userInput)  // delegate
             {
@@ -92,43 +93,43 @@ public class DealerManager implements IDealerManager
             case Add ->
             {
                 IAddDealer addDealer = new AddDealer();
-                addDealer.Add(Database.GetDatabase().GetDealerDatabase());
+                addDealer.Add();
             }
 
             case Search ->
             {
                 ISearchDealer searchDealer = new SearchDealer();
-                searchDealer.Search(Database.GetDatabase().GetDealerDatabase());
+                searchDealer.Search();
             }
 
             case Remove ->
             {
                 IRemoveDealer removeDealer = new RemoveDealer();
-                removeDealer.Remove(Database.GetDatabase().GetDealerDatabase());
+                removeDealer.Remove();
             }
 
             case Update ->
             {
                 IUpdateDealer updateDealer = new UpdateDealer();
-                updateDealer.Update(Database.GetDatabase().GetDealerDatabase());
+                updateDealer.Update();
             }
 
             case PrintAll ->
             {
                 IPrint printAll = new PrintAllDealers();
-                printAll.Print(Database.GetDatabase().GetDealerDatabase());
+                printAll.Print();
             }
 
             case PrintContinuing ->
             {
                 IPrint printContinuing = new PrintAllContinuingDealers();
-                printContinuing.Print(Database.GetDatabase().GetDealerDatabase());
+                printContinuing.Print();
             }
 
             case PrintUncontinuing ->
             {
                 IPrint printUncontinuing = new PrintAllUncontinuingDealers();
-                printUncontinuing.Print(Database.GetDatabase().GetDealerDatabase());
+                printUncontinuing.Print();
             }
 
             case WriteToFile ->

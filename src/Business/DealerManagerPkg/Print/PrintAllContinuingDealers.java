@@ -2,9 +2,7 @@ package Business.DealerManagerPkg.Print;
 
 import Presentation.Tools.Color;
 import Presentation.Tools.Message;
-
-import java.util.ArrayList;
-
+import Persistance.Database;
 import Persistance.Entity.Dealer.Dealer;
 
 
@@ -12,18 +10,18 @@ import Persistance.Entity.Dealer.Dealer;
 public class PrintAllContinuingDealers implements IPrint
 {
     // print all dealers
-    public void Print(ArrayList<Dealer> dealers)
+    public void Print()
     {
-        if (dealers.isEmpty() == true)
+        if (Database.GetDatabase().GetDealerDatabase().isEmpty() == true)
         {
             // empty list
             Message.showMessage("Empty list!", Color.RED);
             return;
         }
         
-        Message.showMessage("LIST OF ALL CONTINUING DEALERS", Color.YELLOW_BACKGROUND);
+        Message.showMessage("LIST OF ALL CONTINUING DEALERS\n", Color.YELLOW_BACKGROUND);
 
-        for (Dealer dealer : dealers)
+        for (Dealer dealer : Database.GetDatabase().GetDealerDatabase())
         {
             if (dealer.getIsContinuing() == true)
             {

@@ -3,6 +3,8 @@ package Business.LoginPkg;
 import Persistance.Database;
 import Persistance.Entity.Account.Account;
 import Persistance.Entity.Account.AccountType;
+import Presentation.Tools.Color;
+import Presentation.Tools.Message;
 
 
 public class CheckLogin implements ICheckLogin
@@ -14,14 +16,12 @@ public class CheckLogin implements ICheckLogin
         {
             if (account.getUsername().equals(login[0]) && account.getPassword().equals(login[1]))
             {
-                // if true return AccountType
-                System.out.println("Login success");
+                Message.showMessage("Login successful!\n", Color.RED);
                 return account.getAccountType();
-                // else return null (cannot find the account)
             } 
         }
 
-        System.out.println("Login failed");
+        Message.showMessage("Account does not exist\n", Color.RED);
         return null;
     }
 }

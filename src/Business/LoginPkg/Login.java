@@ -2,6 +2,9 @@ package Business.LoginPkg;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import Presentation.Tools.Color;
+import Presentation.Tools.Message;
 import Tool.ReadInput;
 
 
@@ -15,15 +18,15 @@ public class Login implements ILogin
         
         try
         {
-            System.out.println("Enter username: ");
+            System.out.print("Enter username: ");
             username = ReadInput.ReadUserInput();
 
-            System.out.println("Enter password: ");
+            System.out.print("Enter password: ");
             password = ReadInput.ReadUserInput();
 
             if (CheckPassword(password) != true || CheckUsername(username) != true)
             {
-                // invalid format
+                // error (reported)
                 return null;
             }
 
@@ -31,7 +34,7 @@ public class Login implements ILogin
         }
         catch (Exception e)
         {
-            // cannot read
+            System.out.println("Error login!\n");
             return null;
         }
     }
@@ -40,24 +43,24 @@ public class Login implements ILogin
     // check validity of username
     private Boolean CheckUsername(String username)
     {
-        // Exxx and xxx are numbers
-        // Return Boolean
         try
         {
             Pattern pattern = Pattern.compile("^E\\d{3}$");
             Matcher matcher = pattern.matcher(username);
 
             if (matcher.find() == true)
+            {
                 return true;
+            }
             else
             {
-                System.out.println("Invalid username.");
+                Message.showMessage("Invalid username\n", Color.RED);
                 return false;
             }
         }
         catch (Exception e)
         {
-            // error
+            Message.showMessage("Error login!\n", Color.RED);
             return false;
         }
     }
@@ -75,13 +78,18 @@ public class Login implements ILogin
             Matcher matcher = pattern.matcher(password);
 
             if (matcher.find() == true)
+            {
                 return true;
+            }
             else
+            {
+                Message.showMessage("Invalid password\n", Color.RED);
                 return false;
+            }
         }
         catch (Exception e)
         {
-            // error
+            Message.showMessage("Error login!\n", Color.RED);
             return false;
         }
     }

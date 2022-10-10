@@ -1,7 +1,6 @@
 package Business.DealerManagerPkg.Search;
 
-import java.util.ArrayList;
-
+import Persistance.Database;
 import Persistance.Entity.Dealer.Dealer;
 import Presentation.Tools.Color;
 import Presentation.Tools.Message;
@@ -16,9 +15,9 @@ public class SearchDealer implements ISearchDealer
     
     
     // get user input to search for dealer
-    public Dealer Search(ArrayList<Dealer> dealers)
+    public Dealer Search()
     {
-        if (dealers.isEmpty() == true)
+        if (Database.GetDatabase().GetDealerDatabase().isEmpty() == true)
         {
             // database is empty
             return null;
@@ -35,7 +34,7 @@ public class SearchDealer implements ISearchDealer
             return null;
         }
         
-        Dealer resultFromSearch = SearchDealerFromDatabase(dealerID, dealers);
+        Dealer resultFromSearch = SearchDealerFromDatabase(dealerID);
         
         if (resultFromSearch == null)
         {
@@ -60,9 +59,9 @@ public class SearchDealer implements ISearchDealer
 
     
     // search from database
-    private Dealer SearchDealerFromDatabase(String dealerID, ArrayList<Dealer> dealers)
+    private Dealer SearchDealerFromDatabase(String dealerID)
     {
-        for (Dealer dealer : dealers)
+        for (Dealer dealer : Database.GetDatabase().GetDealerDatabase())
         {
             // if found
             if (dealer.getDealerID().equals(dealerID) == true)

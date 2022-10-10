@@ -9,6 +9,7 @@ public class ReadFileTool
     // get next line in file
     public static String GetNextLine(ArrayList<String> fileContent)
     {
+        // buffered reader
         return fileContent.isEmpty() == false ? fileContent.remove(0).trim() : null;
     }
     

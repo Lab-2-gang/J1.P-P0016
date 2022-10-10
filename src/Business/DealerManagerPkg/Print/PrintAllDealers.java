@@ -1,7 +1,6 @@
 package Business.DealerManagerPkg.Print;
 
-import java.util.ArrayList;
-
+import Persistance.Database;
 import Persistance.Entity.Dealer.Dealer;
 import Presentation.Tools.Color;
 import Presentation.Tools.Message;
@@ -10,27 +9,21 @@ import Presentation.Tools.Message;
 public class PrintAllDealers implements IPrint
 {
     // print only continuing dealers
-    public void Print(ArrayList<Dealer> dealers)
+    public void Print()
     {
-        if (dealers.isEmpty() == true)
+        if (Database.GetDatabase().GetDealerDatabase().isEmpty() == true)
         {
             // empty list
             Message.showMessage("Empty list!", Color.RED);
             return;
         }
 
-        Message.showMessage("LIST OF ALL DEALERS", Color.YELLOW_BACKGROUND);
-
-        System.out.println("+----------+----------+--------------------+---------------+----------+");
-        System.out.println("|    ID    |   NAME   |       ADDRESS      |     PHONE     |  STATUS  |");
-        System.out.println("+----------+----------+--------------------+---------------+----------+");
+        Message.showMessage("LIST OF ALL DEALERS\n", Color.YELLOW_BACKGROUND);
         
-        for (Dealer dealer : dealers)
+        for (Dealer dealer : Database.GetDatabase().GetDealerDatabase())
         {
             PrintDealer.Print(dealer);
             System.out.println();
         }
-
-        System.out.println("+----------+----------+--------------------+---------------+----------+");
     }
 }

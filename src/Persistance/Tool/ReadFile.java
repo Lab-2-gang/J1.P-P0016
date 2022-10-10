@@ -1,9 +1,8 @@
 package Persistance.Tool;
 
 import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 
 
@@ -14,16 +13,15 @@ public class ReadFile implements IReadFile
     {
         try
         {
-            ClassLoader classLoader = getClass().getClassLoader();
-            InputStream inputStream = classLoader.getResourceAsStream(filePath);
-
-            InputStreamReader inputReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-            BufferedReader fileReader = new BufferedReader(inputReader);
+            File file = new File(filePath);
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
         
-            String line = fileReader.readLine();
+            String line = bufferedReader.readLine();
             
             if (line == null || line.isBlank())
             {
+                bufferedReader.close();
                 return null;
             }
             
@@ -32,9 +30,10 @@ public class ReadFile implements IReadFile
             while (line != null)
             {
                 fileContent.add(line.trim());
-                line = fileReader.readLine();
+                line = bufferedReader.readLine();
             }
             
+            bufferedReader.close();
             return fileContent;
         }
         catch (Exception e)

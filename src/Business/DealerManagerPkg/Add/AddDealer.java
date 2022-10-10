@@ -1,11 +1,8 @@
 package Business.DealerManagerPkg.Add;
 
 import java.util.Collections;
-
+import Persistance.Database;
 import Persistance.Entity.Dealer.Dealer;
-
-import java.util.ArrayList;
-
 import Presentation.Tools.Color;
 import Presentation.Tools.Message;
 import Tool.PatternCheck;
@@ -16,18 +13,18 @@ public class AddDealer implements IAddDealer
 {
     // const format
     private final String DEALER_ID = "^D\\d{3}$";
-    private final String DEALER_HOUSENUMBER = "[\\w\\/&&[^_]]";
+    private final String DEALER_HOUSENUMBER = "[\\W_]&&[^/]";
     
     
     // get dealer to add
-    public void Add(ArrayList<Dealer> dealers)
+    public void Add()
     {
         Message.showMessage("ADD A NEW DEALER", Color.YELLOW);
 
         System.out.print("Enter dealer's ID: ");
         String dealerID = ReadInput.ReadUserInput();
 
-        if (CheckDealerID(dealerID, dealers) != true)
+        if (CheckDealerID(dealerID) != true)
         {
             // invalid dealerID
             return;
@@ -51,7 +48,7 @@ public class AddDealer implements IAddDealer
             return;
         }
 
-        if (PatternCheck.Check(DEALER_HOUSENUMBER, dealerHouseNumber) != true)
+        if (PatternCheck.Check(DEALER_HOUSENUMBER, dealerHouseNumber) == true)
         {
             // wrong house number format
             return;
@@ -72,8 +69,7 @@ public class AddDealer implements IAddDealer
             dealerHouseNumber,
             dealerStreet,
             dealerHouseNumber,
-            true),
-            dealers);
+            true));
 
         Message.showMessage("Added!", Color.BLUE);
         Message.showMessage("Go back to main menu...", Color.BLUE);
@@ -81,11 +77,11 @@ public class AddDealer implements IAddDealer
     
     
     // check validity of dealer ID
-    private Boolean CheckDealerID(String dealerID, ArrayList<Dealer> dealers)
+    private Boolean CheckDealerID(String dealerID)
     {
         Boolean isNullOrBlank = dealerID == null || dealerID.isBlank() == true;
         Boolean isDealerIDFormatValid = PatternCheck.Check(DEALER_ID, dealerID) == true;
-        Boolean isDealerIDAlreadyExist = CheckDealerAlreadyExist(dealerID, dealers);
+        Boolean isDealerIDAlreadyExist = CheckDealerAlreadyExist(dealerID);
         
         return isNullOrBlank != true
             && isDealerIDFormatValid == true
@@ -94,9 +90,9 @@ public class AddDealer implements IAddDealer
     
     
     // check for the existence of dealer before adding
-    private Boolean CheckDealerAlreadyExist(String dealerID, ArrayList<Dealer> dealers)
+    private Boolean CheckDealerAlreadyExist(String dealerID)
     {
-        for (Dealer dealer : dealers)
+        for (Dealer dealer : Database.GetDatabase().GetDealerDatabase())
         {
             if (dealer.getDealerID().equals(dealerID) == true)
             {
@@ -109,11 +105,11 @@ public class AddDealer implements IAddDealer
     
     
     // add dealer to database
-    private void AddDealerToDatabase(Dealer dealer, ArrayList<Dealer> dealers)
+    private void AddDealerToDatabase(Dealer dealer)
     {
-        dealers.add(dealer);
+        Database.GetDatabase().GetDealerDatabase().add(dealer);
         
-        Collections.sort(dealers, (dealer1, dealer2) ->
+        Collections.sort(Database.GetDatabase().GetDealerDatabase(), (dealer1, dealer2) ->
             {
                 return dealer1.getDealerID().compareTo(dealer2.getDealerID());
             });
