@@ -2,29 +2,50 @@ package Database.Account;
 
 import Tool.PatternCheck;
 
-public class CheckAccount {
-//check username format
-    public static boolean checkUsername(String username) {
+
+public class CheckAccount
+{
+    //check username format
+    public static boolean checkUsername(String username)
+    {
         String regex = "^E\\d{3}$";
-        PatternCheck.Check(regex, username);
-        return username.matches(regex);
+        return PatternCheck.Check(regex, username);
     }
-//check password format
-    public static boolean checkPassword(String password) {
+
+
+    //check password format
+    public static boolean checkPassword(String password)
+    {
         String regex = "^[\\D]";
-        PatternCheck.Check(regex, password);
-        return password.matches(regex);
+        return PatternCheck.Check(regex, password);
     }
-//convert account type to enum
-    public static AccountType convertAccountType(String accountType) {
-        if (accountType.equals("Boss")) {
-            return AccountType.Boss;
-        } else if (accountType.equals("Dealer")) {
-            return AccountType.Dealer;
-        } else if (accountType.equals("Delivery")) {
-            return AccountType.Delivery;
-        } else {
-            return null;
+
+
+    //convert account type to enum
+    public static AccountType convertAccountType(String accountType)
+    {
+        switch (accountType)
+        {
+            case "Boss" ->
+            {
+                return AccountType.Boss;
+            }
+
+            case "Dealer" ->
+            {
+                return AccountType.Dealer;
+            }
+
+            case "Delivery" ->
+            {
+                return AccountType.Delivery;
+            }
+
+            default ->
+            {
+                // cannot get account type
+                return null;
+            }
         }
     }
 }

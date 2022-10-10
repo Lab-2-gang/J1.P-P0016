@@ -3,7 +3,6 @@
 import Business.Business;
 import Business.LoginPkg.*;
 import Tool.ReadInput;
-import Database.Database;
 import Database.Account.*;
 
 public class Program {
@@ -206,8 +205,7 @@ public class Program {
                     }
 
                     ICheckLogin checkLogin = new CheckLogin();
-                    AccountType accountType = checkLogin.Check(userLoginInformation, 
-                        Database.GetDatabase().GetAccountDatabase());
+                    AccountType accountType = checkLogin.Check(userLoginInformation);
 
                     if (accountType == null)
                     {

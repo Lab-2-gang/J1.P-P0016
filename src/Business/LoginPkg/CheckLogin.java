@@ -1,6 +1,6 @@
 package Business.LoginPkg;
 
-import java.util.ArrayList;
+import Database.Database;
 import Database.Account.Account;
 import Database.Account.AccountType;
 
@@ -8,9 +8,9 @@ import Database.Account.AccountType;
 public class CheckLogin implements ICheckLogin
 {
     // check login using database
-    public AccountType Check(String[] login, ArrayList<Account> accounts)
+    public AccountType Check(String[] login)
     {
-        for (Account account : accounts)
+        for (Account account : Database.GetDatabase().GetAccountDatabase())
         {
             if (account.getUsername().equals(login[0]) && account.getPassword().equals(login[1]))
             {
