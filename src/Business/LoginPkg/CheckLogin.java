@@ -16,7 +16,7 @@ public class CheckLogin implements ICheckLogin
         {
             if (account.getUsername().equals(login[0]) && account.getPassword().equals(login[1]))
             {
-                Message.showMessage("Login successful!\n", Color.RED);
+                Message.showMessage("Login successful!\n", Color.GREEN);
                 return account.getAccountType();
             } 
         }

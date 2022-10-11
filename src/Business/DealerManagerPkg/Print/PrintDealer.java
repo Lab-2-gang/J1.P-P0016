@@ -18,6 +18,8 @@ public class PrintDealer
             dealer.getDealerHouseNumber(),
             dealer.getDealerStreetName(),
             dealer.getDealerNumber(),
-            dealer.getIsContinuing()));    
+            dealer.getIsContinuing()));
+
+        System.out.println();
     }
 }

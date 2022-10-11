@@ -22,7 +22,7 @@ public class DealerMenu
         menuList.add("6. Print continuing dealers");
         menuList.add("7. Print UN-continuing dealers");
         menuList.add("8. Save to file");
-        menuList.add("Others for quit");
+        menuList.add("0. Quit\n");
     }
 
     

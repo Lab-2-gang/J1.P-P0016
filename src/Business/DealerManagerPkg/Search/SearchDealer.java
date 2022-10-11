@@ -1,5 +1,8 @@
 package Business.DealerManagerPkg.Search;
 
+import java.util.ArrayList;
+
+import Business.DealerManagerPkg.Print.PrintDealer;
 import Persistance.Database;
 import Persistance.Entity.Dealer.Dealer;
 import Presentation.Tools.Color;
@@ -15,14 +18,17 @@ public class SearchDealer implements ISearchDealer
     
     
     // get user input to search for dealer
-    public Dealer Search()
+    public void Search()
     {
-        if (Database.GetDatabase().GetDealerDatabase().isEmpty() == true)
+        ArrayList<Dealer> tmp = Database.GetDatabase().GetDealerDatabase();
+        
+        if (tmp == null || tmp.isEmpty() == true)
         {
-            // database is empty
-            return null;
+            // empty database
+            Message.showMessage("Empty database!\n", Color.RED);
+            return;
         }
-
+        
         Message.showMessage("SEARCH A DEALER BY ID", Color.YELLOW);
         
         System.out.print("Enter dealer's ID: ");
@@ -31,20 +37,11 @@ public class SearchDealer implements ISearchDealer
         if (CheckDealerID(dealerID) != true)
         {
             // input is empty
-            return null;
-        }
-        
-        Dealer resultFromSearch = SearchDealerFromDatabase(dealerID);
-        
-        if (resultFromSearch == null)
-        {
-            // dealer cannot be found
-            return null;
+            Message.showMessage("Invalid input\n", Color.RED);
+            return;
         }
 
-        Message.showMessage("Found!", Color.BLUE);
-        
-        return resultFromSearch;
+        SearchDealerFromDatabase(dealerID);
     }
     
     
@@ -59,18 +56,20 @@ public class SearchDealer implements ISearchDealer
 
     
     // search from database
-    private Dealer SearchDealerFromDatabase(String dealerID)
+    private void SearchDealerFromDatabase(String dealerID)
     {
         for (Dealer dealer : Database.GetDatabase().GetDealerDatabase())
         {
             // if found
             if (dealer.getDealerID().equals(dealerID) == true)
             {
-                return dealer;
+                Message.showMessage("Found!\n", Color.BLUE);
+                PrintDealer.Print(dealer);
+                return;
             }
         }
         
         // if cannot found
-        return null;
+        Message.showMessage("Cannot found\n", Color.RED);
     }
 }

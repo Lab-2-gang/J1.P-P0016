@@ -14,15 +14,21 @@ public class UpdateDealer implements IUpdateDealer
 {
     // const format
     private final String DEALER_ID = "^D\\d{3}$";
-    private final String DEALER_HOUSENUMBER = "[\\w\\/&&[^_]]";
+    private final String DEALER_HOUSENUMBER = "[[\\W_]&&[^/]]";
+    private final String DEALER_PHONENUMBER = "^\\d{9}$|^\\d{11}$";
+    private final String TRUE = "^true$";
+    private final String FALSE = "^false$";
     
     
     // get user input to update
     public void Update()
     {
-        if (Database.GetDatabase().GetDealerDatabase().isEmpty() == true)
+        ArrayList<Dealer> tmp = Database.GetDatabase().GetDealerDatabase();
+        
+        if (tmp == null || tmp.isEmpty() == true)
         {
             // empty database
+            Message.showMessage("Empty database!\n", Color.RED);
             return;
         }
 
@@ -45,14 +51,15 @@ public class UpdateDealer implements IUpdateDealer
         }
         
         System.out.println("Found dealer");
-        System.out.println("Update initialized");
+        System.out.println("Update initialized...");
+
         System.out.print("Enter dealer's ID: ");
         String dealerIDUpdate = ReadInput.ReadUserInput();
 
         if (CheckDealerID(dealerIDUpdate) != true)
         {
             // invalid dealerID
-            Message.showMessage("Invalid dealer's ID", Color.RED);
+            Message.showMessage("Invalid dealer's ID\n", Color.RED);
             return;
         }
         
@@ -62,23 +69,17 @@ public class UpdateDealer implements IUpdateDealer
         if (dealerNameUpdate == null || dealerNameUpdate.isBlank() == true)
         {
             // invalid dealer name
-            Message.showMessage("Invalid dealer's name", Color.RED);
+            Message.showMessage("Invalid dealer's name\n", Color.RED);
             return;
         }
         
         System.out.print("Enter dealer's house number: ");
         String dealerHouseNumberUpdate = ReadInput.ReadUserInput();
         
-        if (dealerHouseNumberUpdate == null || dealerHouseNumberUpdate.isBlank() == true)
+        if (CheckDealerHouseNumber(dealerHouseNumberUpdate) != true)
         {
             // invalid dealer house
-            Message.showMessage("Invalid dealer's house number", Color.RED);
-            return;
-        }
-        if (PatternCheck.Check(DEALER_HOUSENUMBER, dealerHouseNumberUpdate) != true)
-        {
-            // wrong house number format
-            Message.showMessage("Wrong dealer's house number format", Color.RED);
+            Message.showMessage("Invalid dealer's house number\n", Color.RED);
             return;
         }
         
@@ -88,29 +89,51 @@ public class UpdateDealer implements IUpdateDealer
         if (dealerStreetUpdate == null || dealerStreetUpdate.isBlank() == true)
         {
             // invalid dealer street
-            Message.showMessage("Invalid dealer's street", Color.RED);
+            Message.showMessage("Invalid dealer's street\n", Color.RED);
             return;
         }
+
+        System.out.print("Enter dealer's phone number: ");
+        String dealerPhoneNumberUpdate = ReadInput.ReadUserInput();
+        
+        if (CheckDealerPhoneNumber(dealerPhoneNumberUpdate) != true)
+        {
+            // invalid dealer phone number
+            Message.showMessage("Invalid dealer's phone number\n", Color.RED);
+            return;
+        }
+
+        System.out.print("Enter dealer's status: ");
+        String dealerStatusUpdate = ReadInput.ReadUserInput();
+
+        if (CheckDealerStatus(dealerStatusUpdate) != true)
+        {
+            // invalid dealer status
+            Message.showMessage("Invalid dealer's status\n", Color.RED);
+            return;
+        }
+
+        Boolean dealerStatusBoolean = PatternCheck.Check(TRUE, dealerStatusUpdate) == true ? true : false;
         
         Dealer dealer = new Dealer(
             dealerIDUpdate,
             dealerNameUpdate,
             dealerHouseNumberUpdate,
             dealerStreetUpdate,
-            dealerHouseNumberUpdate,
-            true);
+            dealerPhoneNumberUpdate,
+            dealerStatusBoolean);
         
-        Boolean isUpdate = UpdateDealerToDatabase(dealer);
+        Boolean isUpdate = UpdateDealerToDatabase(dealer, dealerID);
         
         if (isUpdate == true)
         {
             // update successful
-            Message.showMessage("Update successful!", Color.BLUE);
+            Message.showMessage("Update successful!\n", Color.BLUE);
         }
         else
         {
             // failed to update
-            Message.showMessage("Cannot update", Color.RED);
+            Message.showMessage("Cannot update\n", Color.RED);
         }
     }
     
@@ -122,6 +145,37 @@ public class UpdateDealer implements IUpdateDealer
         Boolean isDealerIDFormatValid = PatternCheck.Check(DEALER_ID, dealerID) == true;
         
         return isNullOrBlank != true && isDealerIDFormatValid == true;
+    }
+
+
+    // check validity of dealer house number
+    private Boolean CheckDealerHouseNumber(String dealerHouseNumber)
+    {
+        Boolean isNullOrBlank = dealerHouseNumber == null || dealerHouseNumber.isBlank() == true;
+        Boolean isDealerHouseNumberFormatValid = PatternCheck.Check(DEALER_HOUSENUMBER, dealerHouseNumber) != true;
+
+        return isNullOrBlank != true && isDealerHouseNumberFormatValid == true;
+    }
+
+
+    // check validity of dealer phone number
+    private Boolean CheckDealerPhoneNumber(String dealerPhoneNumber)
+    {
+        Boolean isNullOrBlank = dealerPhoneNumber == null || dealerPhoneNumber.isBlank() == true;
+        Boolean isDealerPhoneNumberValid = PatternCheck.Check(DEALER_PHONENUMBER, dealerPhoneNumber) == true;
+
+        return isNullOrBlank != true && isDealerPhoneNumberValid == true;
+    }
+
+
+    // check validity of dealer status
+    private Boolean CheckDealerStatus(String dealerStatus)
+    {
+        Boolean isNullOrBlank = dealerStatus == null || dealerStatus.isBlank() == true;
+        Boolean isDealerStatusValid = PatternCheck.Check(TRUE, dealerStatus)
+            || PatternCheck.Check(FALSE, dealerStatus);
+
+        return isNullOrBlank != true && isDealerStatusValid == true;
     }
     
     
@@ -141,13 +195,13 @@ public class UpdateDealer implements IUpdateDealer
     
     
     // add dealer to database
-    private Boolean UpdateDealerToDatabase(Dealer dealer)
+    private Boolean UpdateDealerToDatabase(Dealer dealer, String dealerIDToUpdate)
     {
         ArrayList<Dealer> dealers = Database.GetDatabase().GetDealerDatabase();
 
         for (Dealer traverseDealer : dealers)
         {
-            if (traverseDealer.getDealerID().equals(dealer.getDealerID()) == true)
+            if (traverseDealer.getDealerID().equals(dealerIDToUpdate) == true)
             {
                 dealers.set(dealers.indexOf(traverseDealer), dealer);
                 

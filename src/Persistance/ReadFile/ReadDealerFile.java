@@ -17,7 +17,7 @@ public class ReadDealerFile implements IReadDatabase<Dealer>
     // const format
     private final String ID_FORMAT = "^D\\d{3}$";
     private final String PHONE_NUMBER_FORMAT = "^\\d{9}$|^\\d{11}$";
-    private final String DEALER_HOUSENUMBER = "[\\W_]&&[^/]";
+    private final String DEALER_HOUSENUMBER = "[[\\W_]&&[^/]]";
     private final String TRUE = "^true$";
     private final String FALSE = "^false$";
     

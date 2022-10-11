@@ -1,5 +1,6 @@
 package Business.DealerManagerPkg.Remove;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import Persistance.Database;
@@ -19,10 +20,12 @@ public class RemoveDealer implements IRemoveDealer
     // get user input to remove
     public void Remove()
     {
-        if (Database.GetDatabase().GetDealerDatabase().isEmpty() == true)
+        ArrayList<Dealer> tmp = Database.GetDatabase().GetDealerDatabase();
+        
+        if (tmp == null || tmp.isEmpty() == true)
         {
-            // database is empty
-            Message.showMessage("Empty database!", Color.RED);
+            // empty database
+            Message.showMessage("Empty database!\n", Color.RED);
             return;
         }
 
@@ -34,7 +37,7 @@ public class RemoveDealer implements IRemoveDealer
         if (CheckDealerID(dealerID) != true)
         {
             // invalid dealer ID
-            Message.showMessage("Invalid dealer ID", Color.RED);
+            Message.showMessage("Invalid dealer ID\n", Color.RED);
             return;
         }
         
@@ -43,12 +46,12 @@ public class RemoveDealer implements IRemoveDealer
         if (isRemoved == true)
         {
             // remove successful
-            Message.showMessage("Remove successful!", Color.BLUE);
+            Message.showMessage("Remove successful!\n", Color.BLUE);
         }
         else
         {
             // failed to remove
-            Message.showMessage("Remove failed!", Color.BLUE);
+            Message.showMessage("Remove failed!\n", Color.BLUE);
         }
     }
     
@@ -56,20 +59,8 @@ public class RemoveDealer implements IRemoveDealer
     // check validity of dealerID
     private Boolean CheckDealerID(String dealerID)
     {
-        Boolean isNullOrBlank = false;
-        Boolean isDealerIDFormatValid = false;
-        
-        if (dealerID == null || dealerID.isBlank())
-        {
-            // input is empty
-            isNullOrBlank = true;
-        }
-
-        if (PatternCheck.Check(DEALER_ID, dealerID) != true)
-        {
-            // invalid format
-            isDealerIDFormatValid = true;
-        }
+        Boolean isNullOrBlank = dealerID == null || dealerID.isBlank() == true;
+        Boolean isDealerIDFormatValid = PatternCheck.Check(DEALER_ID, dealerID) == true;
         
         return isNullOrBlank == false && isDealerIDFormatValid == true;
     }
@@ -89,6 +80,7 @@ public class RemoveDealer implements IRemoveDealer
                 if (currentDealer == null)
                 {
                     // sth wrong
+                    return false;
                 }
 
                 if (currentDealer.getDealerID().equals(dealerID) == true)

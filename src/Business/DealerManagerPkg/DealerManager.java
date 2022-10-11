@@ -7,6 +7,8 @@ import Business.DealerManagerPkg.Search.*;
 import Business.DealerManagerPkg.Update.*;
 import Presentation.Menu.DealerMenu;
 import Presentation.Menu.PrintMenu;
+import Presentation.Tools.Color;
+import Presentation.Tools.Message;
 import Tool.ReadInput;
 
 
@@ -76,9 +78,14 @@ public class DealerManager implements IDealerManager
                     DealerManagerDelegate(DealerOperation.WriteToFile);
                 }
 
-                default ->
+                case "0" ->
                 {
                     isBeingUsed = false;
+                }
+
+                default ->
+                {
+                    Message.showMessage("Invalid input\n", Color.RED);
                 }
             }
         }
