@@ -17,8 +17,6 @@ public class Program
         
         while (true)
         {
-            ClearConsole.Clear();
-
             Message.showMessage("Welcome to Dealer Management Program\n", Color.GREEN);
 
             System.out.println("===============================================");
@@ -47,6 +45,8 @@ public class Program
                         continue;
                     }
 
+                    ClearConsole.Clear();
+                    
                     ICheckLogin checkLogin = new CheckLogin();
                     AccountType accountType = checkLogin.Check(userLoginInformation);
 

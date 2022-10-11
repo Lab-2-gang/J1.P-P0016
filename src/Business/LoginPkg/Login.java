@@ -1,14 +1,18 @@
 package Business.LoginPkg;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import Presentation.Tools.Color;
 import Presentation.Tools.Message;
+import Tool.PatternCheck;
 import Tool.ReadInput;
 
 
 public class Login implements ILogin
 {
+    // format
+    private final String USERNAME_FORMAT = "^E\\d{3}$";
+    private final String PASSWORD_FORMAT = "^[\\D]";
+
+
     // read user login
     public String[] ReadLogin()
     {
@@ -42,26 +46,13 @@ public class Login implements ILogin
     // check validity of username
     private Boolean CheckUsername(String username)
     {
-        try
+        if (PatternCheck.Check(USERNAME_FORMAT, username) != true)
         {
-            Pattern pattern = Pattern.compile("^E\\d{3}$");
-            Matcher matcher = pattern.matcher(username);
-
-            if (matcher.find() == true)
-            {
-                return true;
-            }
-            else
-            {
-                Message.showMessage("Invalid username\n", Color.RED);
-                return false;
-            }
-        }
-        catch (Exception e)
-        {
-            Message.showMessage("Error login!\n", Color.RED);
+            Message.showMessage("Invalid username\n", Color.RED);
             return false;
         }
+
+        return true;
     }
 
 
@@ -70,26 +61,12 @@ public class Login implements ILogin
     {
         // Password is unlimited characters and numbers
         // Return Boolean
-
-        try
+        if (PatternCheck.Check(PASSWORD_FORMAT, password) != true)
         {
-            Pattern pattern = Pattern.compile("^[\\D]");
-            Matcher matcher = pattern.matcher(password);
-
-            if (matcher.find() == true)
-            {
-                return true;
-            }
-            else
-            {
-                Message.showMessage("Invalid password\n", Color.RED);
-                return false;
-            }
-        }
-        catch (Exception e)
-        {
-            Message.showMessage("Error login!\n", Color.RED);
+            Message.showMessage("Invalid password\n", Color.RED);
             return false;
         }
+
+        return true;
     }
 }
