@@ -29,7 +29,7 @@ public class SearchDealer implements ISearchDealer
             return;
         }
         
-        Message.showMessage("SEARCH A DEALER BY ID", Color.YELLOW);
+        Message.showMessage("SEARCH A DEALER BY ID", Color.YELLOW_BACKGROUND);
         
         System.out.print("Enter dealer's ID: ");
         String dealerID = ReadInput.ReadUserInput();
@@ -63,7 +63,7 @@ public class SearchDealer implements ISearchDealer
             // if found
             if (dealer.getDealerID().equals(dealerID) == true)
             {
-                Message.showMessage("Found!\n", Color.BLUE);
+                Message.showMessage("Found!\n", Color.GREEN);
                 PrintDealer.Print(dealer);
                 return;
             }

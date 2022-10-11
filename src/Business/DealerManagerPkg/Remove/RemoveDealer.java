@@ -46,12 +46,12 @@ public class RemoveDealer implements IRemoveDealer
         if (isRemoved == true)
         {
             // remove successful
-            Message.showMessage("Remove successful!\n", Color.BLUE);
+            Message.showMessage("Remove successful!\n", Color.GREEN);
         }
         else
         {
             // failed to remove
-            Message.showMessage("Remove failed!\n", Color.BLUE);
+            Message.showMessage("Remove failed!\n", Color.RED);
         }
     }
     

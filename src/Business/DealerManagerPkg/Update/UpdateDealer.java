@@ -128,7 +128,7 @@ public class UpdateDealer implements IUpdateDealer
         if (isUpdate == true)
         {
             // update successful
-            Message.showMessage("Update successful!\n", Color.BLUE);
+            Message.showMessage("Update successful!\n", Color.GREEN);
         }
         else
         {

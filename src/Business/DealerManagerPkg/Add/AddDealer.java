@@ -32,7 +32,7 @@ public class AddDealer implements IAddDealer
             return;
         }
 
-        Message.showMessage("ADD A NEW DEALER", Color.YELLOW);
+        Message.showMessage("ADD A NEW DEALER", Color.YELLOW_BACKGROUND);
 
         System.out.print("Enter dealer's ID: ");
         String dealerID = ReadInput.ReadUserInput();

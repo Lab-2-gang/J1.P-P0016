@@ -31,6 +31,7 @@ public class DealerManager implements IDealerManager
             if (userInput == null || userInput.isBlank() == true)
             {
                 // invalid input
+                Message.showMessage("Empty input\n", Color.RED);
                 continue;
             }
 
