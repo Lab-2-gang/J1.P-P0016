@@ -3,6 +3,7 @@ import Business.LoginPkg.*;
 import Persistance.Entity.Account.AccountType;
 import Presentation.Tools.Color;
 import Presentation.Tools.Message;
+import Tool.ClearConsole;
 import Tool.ReadInput;
 
 
@@ -10,15 +11,16 @@ public class Program
 {
     public static void main(String[] args)
     {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-
-        Message.showMessage("Welcome to Dealer Management Program\n", Color.GREEN);
+        ClearConsole.Clear();
 
         Business business = new Business();
         
         while (true)
         {
+            ClearConsole.Clear();
+
+            Message.showMessage("Welcome to Dealer Management Program\n", Color.GREEN);
+
             System.out.println("===============================================");
             System.out.println("1. Login");
             System.out.println("2. Exit");

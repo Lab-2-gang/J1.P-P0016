@@ -23,7 +23,7 @@ public class DealerManager implements IDealerManager
         boolean isBeingUsed = true;
 
         while (isBeingUsed == true)
-        {
+        {   
             PrintMenu.Print(dealerMenu.getMenuList());
 
             System.out.print("Enter option: ");
