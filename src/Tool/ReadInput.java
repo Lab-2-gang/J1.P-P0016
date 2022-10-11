@@ -5,10 +5,6 @@ import java.util.Scanner;
 
 public class ReadInput
 {
-    // scanner
-    
-
-    
     // read input as string
     public static String ReadUserInput()
     {
