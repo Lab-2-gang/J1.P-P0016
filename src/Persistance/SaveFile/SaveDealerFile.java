@@ -3,11 +3,11 @@ package Persistance.SaveFile;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-
 import Persistance.Database;
 import Persistance.Entity.Dealer.Dealer;
 import Presentation.Tools.Color;
 import Presentation.Tools.Message;
+
 
 public class SaveDealerFile
 {
@@ -44,7 +44,7 @@ public class SaveDealerFile
         catch (Exception e)
         {
             // cannot save to file
-            Message.showMessage("Cannot save\n", Color.GREEN);
+            Message.showMessage("Cannot save\n", Color.RED);
         }
     }
 }
