@@ -107,7 +107,7 @@ public class AddDealer implements IAddDealer
             dealerName,
             dealerHouseNumber,
             dealerStreet,
-            dealerHouseNumber,
+            dealerPhoneNumber,
             dealerStatusBoolean));
 
         Message.showMessage("Added!", Color.BLUE);

@@ -58,7 +58,7 @@ public class Program
                     {
                         case Boss ->
                         {
-                            Message.showMessage("To be implemented\n", Color.RED);
+                            Message.showMessage("To be implemented\n", Color.BLUE);
                         }
 
                         case Dealer ->
@@ -68,7 +68,7 @@ public class Program
 
                         case Delivery ->
                         {
-                            Message.showMessage("To be implemented\n", Color.RED);
+                            Message.showMessage("To be implemented\n", Color.BLUE);
                         }
 
                         default ->
