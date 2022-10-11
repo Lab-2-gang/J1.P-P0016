@@ -13,7 +13,12 @@ public class ReadInput
 
         try
         {
-            return readInput.nextLine().trim();
+            if (readInput.hasNext() == true)
+            {
+                return readInput.nextLine().trim();
+            }
+
+            return null;
         }
         catch (Exception e)
         {
