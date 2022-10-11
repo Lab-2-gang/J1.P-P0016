@@ -6,12 +6,15 @@ import java.util.Scanner;
 public class ReadInput
 {
     // scanner
-    private static final Scanner readInput = new Scanner(System.in);
+    
 
     
     // read input as string
     public static String ReadUserInput()
     {
+        @SuppressWarnings("resource")
+        Scanner readInput = new Scanner(System.in);
+
         try
         {
             return readInput.nextLine().trim();

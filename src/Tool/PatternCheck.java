@@ -18,11 +18,7 @@ public class PatternCheck
         catch (Exception e)
         {
             // error generating pattern check
-            return null;
+            return false;
         }
-    }
-
-    public boolean checkPattern(String username) {
-        return false;
     }
 }
