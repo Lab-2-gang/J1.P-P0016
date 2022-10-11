@@ -5,6 +5,7 @@ import Business.DealerManagerPkg.Print.*;
 import Business.DealerManagerPkg.Remove.*;
 import Business.DealerManagerPkg.Search.*;
 import Business.DealerManagerPkg.Update.*;
+import Persistance.Database;
 import Presentation.Menu.DealerMenu;
 import Presentation.Menu.PrintMenu;
 import Presentation.Tools.Color;
@@ -142,7 +143,7 @@ public class DealerManager implements IDealerManager
 
             case WriteToFile ->
             {
-                // TO-DO to be implemented
+                Database.GetDatabase().SaveAccountFile();
             }
         }
     }

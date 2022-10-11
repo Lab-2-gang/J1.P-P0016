@@ -50,8 +50,8 @@ public class UpdateDealer implements IUpdateDealer
             return;
         }
         
-        System.out.println("Found dealer");
-        System.out.println("Update initialized...");
+        Message.showMessage("Found dealer!", Color.GREEN);
+        Message.showMessage("Update initialized...\n", Color.GREEN);
 
         System.out.print("Enter dealer's ID: ");
         String dealerIDUpdate = ReadInput.ReadUserInput();

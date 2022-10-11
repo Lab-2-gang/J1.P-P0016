@@ -9,6 +9,7 @@ import Persistance.ReadFile.IReadDatabase;
 import Persistance.ReadFile.ReadAccountFile;
 import Persistance.ReadFile.ReadDealerFile;
 import Persistance.ReadFile.ReadDeliveryFile;
+import Persistance.SaveFile.SaveDealerFile;
 import Tool.DatabaseType;
 
 
@@ -83,5 +84,13 @@ public class Database
     public ArrayList<Delivery> GetDeliveryDatabase()
     {
         return deliveryDatabase;
+    }
+
+
+    // save
+    public void SaveAccountFile()
+    {
+        SaveDealerFile saveDealer = new SaveDealerFile();
+        saveDealer.Save(filePaths.GetPath(DatabaseType.Dealers));
     }
 }
