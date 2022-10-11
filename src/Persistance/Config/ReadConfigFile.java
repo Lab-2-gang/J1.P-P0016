@@ -3,7 +3,6 @@ package Persistance.Config;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.StringTokenizer;
-
 import Persistance.Tool.IReadFile;
 import Persistance.Tool.ReadFile;
 import Persistance.Tool.ReadFileTool;

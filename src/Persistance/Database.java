@@ -1,7 +1,6 @@
 package Persistance;
 
 import java.util.ArrayList;
-
 import Persistance.Entity.Account.Account;
 import Persistance.Entity.Dealer.Dealer;
 import Persistance.Entity.Delivery.Delivery;

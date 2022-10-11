@@ -1,7 +1,6 @@
 package Business.DealerManagerPkg.Print;
 
 import java.util.ArrayList;
-
 import Persistance.Database;
 import Persistance.Entity.Dealer.Dealer;
 import Presentation.Tools.Color;

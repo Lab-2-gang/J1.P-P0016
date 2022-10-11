@@ -1,7 +1,6 @@
 package Persistance;
 
 import java.util.HashMap;
-
 import Persistance.Config.IReadConfigFile;
 import Persistance.Config.ReadConfigFile;
 import Tool.DatabaseType;
@@ -13,7 +12,6 @@ public class FilePath implements IFilePath
     private String pathToAccountsFile = null;
     private String pathToDealersFile = null;
     private String pathToDeliveriesFile = null;
-    private String pathToProductsFile = null;
     
     
     // initiate config file and get file paths
@@ -38,8 +36,6 @@ public class FilePath implements IFilePath
                 case Dealers -> pathToDealersFile = item.getValue();
                 
                 case Deliveries -> pathToDeliveriesFile = item.getValue();
-                
-                case Products -> pathToProductsFile = item.getValue();
                 
                 default ->
                 {
@@ -69,11 +65,6 @@ public class FilePath implements IFilePath
             case Deliveries ->
             {
                 return pathToDeliveriesFile;
-            }
-            
-            case Products ->
-            {
-                return pathToProductsFile;
             }
             
             default ->

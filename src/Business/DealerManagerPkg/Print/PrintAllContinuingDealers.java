@@ -2,9 +2,7 @@ package Business.DealerManagerPkg.Print;
 
 import Presentation.Tools.Color;
 import Presentation.Tools.Message;
-
 import java.util.ArrayList;
-
 import Persistance.Database;
 import Persistance.Entity.Dealer.Dealer;
 

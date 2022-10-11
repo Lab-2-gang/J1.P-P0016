@@ -2,6 +2,7 @@ package Tool;
 
 import java.util.Scanner;
 
+
 public class ReadInput
 {
     // scanner

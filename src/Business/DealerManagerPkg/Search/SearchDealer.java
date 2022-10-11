@@ -1,7 +1,6 @@
 package Business.DealerManagerPkg.Search;
 
 import java.util.ArrayList;
-
 import Business.DealerManagerPkg.Print.PrintDealer;
 import Persistance.Database;
 import Persistance.Entity.Dealer.Dealer;
