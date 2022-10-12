@@ -4,3 +4,4 @@
 !*.java
 !*.dat
 !*/
+!pom.xml
