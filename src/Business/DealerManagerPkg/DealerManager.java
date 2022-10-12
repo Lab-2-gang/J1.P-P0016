@@ -1,15 +1,10 @@
 package Business.DealerManagerPkg;
 
-import Business.DealerManagerPkg.Add.*;
-import Business.DealerManagerPkg.Print.*;
-import Business.DealerManagerPkg.Remove.*;
-import Business.DealerManagerPkg.Search.*;
-import Business.DealerManagerPkg.Update.*;
-import Persistance.Database;
 import Presentation.Menu.DealerMenu;
 import Presentation.Menu.PrintMenu;
 import Presentation.Tool.Color;
 import Presentation.Tool.Message;
+import Tool.ClearConsole;
 import Tool.ReadInput;
 
 
@@ -19,10 +14,9 @@ public class DealerManager implements IDealerManager
     public void DealerManagerMenu()
     {
         DealerMenu dealerMenu = new DealerMenu();
+        DealerManagerDelegate dealerDelegate = new DealerManagerDelegate();
 
-        boolean isBeingUsed = true;
-
-        while (isBeingUsed == true)
+        while (true)
         {   
             PrintMenu.Print(dealerMenu.getMenuList());
 
@@ -38,113 +32,36 @@ public class DealerManager implements IDealerManager
 
             System.out.println();
 
-            switch (userInput)  // delegate
+
+            // convert user input into enum type
+            DealerFunctionType functionType = switch (userInput)
+                {
+                    case "1" -> DealerFunctionType.Add;
+                
+                    case "2" -> DealerFunctionType.Search;
+
+                    case "3" -> DealerFunctionType.Remove;
+
+                    case "4" -> DealerFunctionType.Update;
+
+                    case "5" -> DealerFunctionType.PrintAll;
+
+                    case "6" -> DealerFunctionType.PrintContinuing;
+
+                    case "7" -> DealerFunctionType.PrintUncontinuing;
+
+                    case "8" -> DealerFunctionType.WriteToFile;
+
+                    default -> null;
+                };
+
+            if (functionType == null)
             {
-                case "1" ->
-                {
-                    DealerManagerDelegate(DealerOperation.Add);
-                }
-
-                case "2" ->
-                {
-                    DealerManagerDelegate(DealerOperation.Search);
-                }
-
-                case "3" ->
-                {
-                    DealerManagerDelegate(DealerOperation.Remove);
-                }
-
-                case "4" ->
-                {
-                    DealerManagerDelegate(DealerOperation.Update);
-                }
-
-                case "5" ->
-                {
-                    DealerManagerDelegate(DealerOperation.PrintAll);
-                }
-
-                case "6" ->
-                {
-                    DealerManagerDelegate(DealerOperation.PrintContinuing);
-                }
-
-                case "7" ->
-                {
-                    DealerManagerDelegate(DealerOperation.PrintUncontinuing);
-                }
-
-                case "8" ->
-                {
-                    DealerManagerDelegate(DealerOperation.WriteToFile);
-                }
-
-                case "0" ->
-                {
-                    isBeingUsed = false;
-                }
-
-                default ->
-                {
-                    Message.showMessage("Invalid input\n", Color.RED);
-                }
-            }
-        }
-    }
-
-
-    // delegate user choice
-    private void DealerManagerDelegate(DealerOperation task)
-    {
-        switch (task)
-        {
-            case Add ->
-            {
-                IAddDealer addDealer = new AddDealer();
-                addDealer.Add();
+                ClearConsole.Clear();
+                break;
             }
 
-            case Search ->
-            {
-                ISearchDealer searchDealer = new SearchDealer();
-                searchDealer.Search();
-            }
-
-            case Remove ->
-            {
-                IRemoveDealer removeDealer = new RemoveDealer();
-                removeDealer.Remove();
-            }
-
-            case Update ->
-            {
-                IUpdateDealer updateDealer = new UpdateDealer();
-                updateDealer.Update();
-            }
-
-            case PrintAll ->
-            {
-                IPrint printAll = new PrintAllDealers();
-                printAll.Print();
-            }
-
-            case PrintContinuing ->
-            {
-                IPrint printContinuing = new PrintAllContinuingDealers();
-                printContinuing.Print();
-            }
-
-            case PrintUncontinuing ->
-            {
-                IPrint printUncontinuing = new PrintAllUncontinuingDealers();
-                printUncontinuing.Print();
-            }
-
-            case WriteToFile ->
-            {
-                Database.GetDatabase().SaveAccountFile();
-            }
+            dealerDelegate.Delegate(functionType);
         }
     }
 }

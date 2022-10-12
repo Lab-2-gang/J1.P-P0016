@@ -1,7 +1,7 @@
 package Business.DealerManagerPkg;
 
 
-public enum DealerOperation
+public enum DealerFunctionType
 {
     Add,
     Search,

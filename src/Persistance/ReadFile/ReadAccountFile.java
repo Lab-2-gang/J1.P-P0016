@@ -9,6 +9,7 @@ import Persistance.Entity.Account.AccountType;
 import Persistance.Tool.IReadFile;
 import Persistance.Tool.ReadFile;
 import Persistance.Tool.ReadFileTool;
+import Tool.CheckNullOrBlank;
 import Tool.PatternCheck;
 
 
@@ -117,7 +118,7 @@ public class ReadAccountFile implements IReadDatabase<Account>
             
             for (String item : account)
             {
-                if (item == null || item.isBlank() == true)
+                if (CheckNullOrBlank.Check(item) == true)
                 {
                     isNullOrBlank = true;
                     break;
@@ -129,7 +130,9 @@ public class ReadAccountFile implements IReadDatabase<Account>
             // error null pointer
         }
         
-        return isNullOrBlank == false && isAccountUsernameValid == true && isAccountPasswordValid == true;
+        return isNullOrBlank == false
+            && isAccountUsernameValid == true
+            && isAccountPasswordValid == true;
     }
 
     
@@ -137,11 +140,13 @@ public class ReadAccountFile implements IReadDatabase<Account>
     private Boolean CheckDuplicateAccount(ArrayList<Account> accounts)
     {
         Iterator<Account> deliveriesIterator = accounts.iterator();
-        String checkID = deliveriesIterator.hasNext() == true ? deliveriesIterator.next().getUsername(): null;
+        String checkID = deliveriesIterator.hasNext() == true ?
+            deliveriesIterator.next().getUsername() : null;
         
         while (checkID != null)
         {
-            String afterCheckID = deliveriesIterator.hasNext() == true ? deliveriesIterator.next().getUsername(): null;
+            String afterCheckID = deliveriesIterator.hasNext() == true ?
+                deliveriesIterator.next().getUsername() : null;
             
             if (checkID.equals(afterCheckID) == true)
             {
@@ -152,6 +157,7 @@ public class ReadAccountFile implements IReadDatabase<Account>
             checkID = afterCheckID;
         }
         
+        // no duplicate
         return true;
     }
 }

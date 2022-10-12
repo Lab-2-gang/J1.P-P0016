@@ -3,6 +3,7 @@ import Business.LoginPkg.*;
 import Persistance.Entity.Account.AccountType;
 import Presentation.Tool.Color;
 import Presentation.Tool.Message;
+import Tool.CheckNullOrBlank;
 import Tool.ClearConsole;
 import Tool.ReadInput;
 
@@ -26,7 +27,7 @@ public class Program
 
             String userInput = ReadInput.Read();
 
-            if (userInput == null || userInput.isBlank() == true)
+            if (CheckNullOrBlank.Check(userInput) == true)
             {
                 Message.showMessage("No input was founded\n", Color.RED);
                 continue;
