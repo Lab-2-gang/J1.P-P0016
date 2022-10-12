@@ -13,7 +13,7 @@ public class Business
         {
             case Boss ->
             {
-                // TO-DO
+                // to be implemented
             }
 
             case Dealer ->
@@ -24,7 +24,7 @@ public class Business
 
             case Delivery ->
             {
-                // TO-DO
+                // to be implemented
             }
         }
     }
