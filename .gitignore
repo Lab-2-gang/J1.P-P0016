@@ -4,5 +4,6 @@
 !*.java
 !*.dat
 !*/
-target/
 !pom.xml
+target/
+.vscode/
