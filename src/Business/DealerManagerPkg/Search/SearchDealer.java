@@ -2,23 +2,20 @@ package Business.DealerManagerPkg.Search;
 
 import java.util.ArrayList;
 import Business.DealerManagerPkg.Print.PrintDealer;
+import Business.DealerManagerPkg.Tool.CheckDealer;
 import Persistance.Database;
 import Persistance.Entity.Dealer.Dealer;
-import Presentation.Tools.Color;
-import Presentation.Tools.Message;
-import Tool.PatternCheck;
-import Tool.ReadInput;
+import Presentation.Tool.Color;
+import Presentation.Tool.Message;
+import Tool.AskForInput;
 
 
 public class SearchDealer implements ISearchDealer
 {
-    // const format
-    private final String DEALER_ID = "^D\\d{3}$";
-    
-    
     // get user input to search for dealer
     public void Search()
     {
+        // check if database is empty
         ArrayList<Dealer> tmp = Database.GetDatabase().GetDealerDatabase();
         
         if (tmp == null || tmp.isEmpty() == true)
@@ -28,31 +25,25 @@ public class SearchDealer implements ISearchDealer
             return;
         }
         
+
         Message.showMessage("SEARCH A DEALER BY ID", Color.YELLOW_BACKGROUND);
         
-        System.out.print("Enter dealer's ID: ");
-        String dealerID = ReadInput.ReadUserInput();
+
+        // get dealer ID
+        String dealerID = AskForInput.Ask("Enter dealer's ID: ");
         
-        if (CheckDealerID(dealerID) != true)
+        if (CheckDealer.CheckDealerID(dealerID) != true)
         {
             // input is empty
             Message.showMessage("Invalid input\n", Color.RED);
             return;
         }
 
+
+        // search for dealer
         SearchDealerFromDatabase(dealerID);
     }
     
-    
-    // check validity of dealerID
-    private Boolean CheckDealerID(String dealerID)
-    {
-        Boolean isNullOrBlank = dealerID == null || dealerID.isBlank() == true;
-        Boolean isDealerIDValid = PatternCheck.Check(DEALER_ID, dealerID) == true;
-        
-        return isNullOrBlank != true && isDealerIDValid == true;
-    }
-
     
     // search from database
     private void SearchDealerFromDatabase(String dealerID)

@@ -1,8 +1,8 @@
 import Business.Business;
 import Business.LoginPkg.*;
 import Persistance.Entity.Account.AccountType;
-import Presentation.Tools.Color;
-import Presentation.Tools.Message;
+import Presentation.Tool.Color;
+import Presentation.Tool.Message;
 import Tool.ClearConsole;
 import Tool.ReadInput;
 
@@ -24,7 +24,7 @@ public class Program
             System.out.println("2. Exit");
             System.out.print("Enter your option: ");
 
-            String userInput = ReadInput.ReadUserInput();
+            String userInput = ReadInput.Read();
 
             if (userInput == null || userInput.isBlank() == true)
             {

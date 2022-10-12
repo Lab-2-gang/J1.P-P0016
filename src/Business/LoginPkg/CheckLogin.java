@@ -3,8 +3,8 @@ package Business.LoginPkg;
 import Persistance.Database;
 import Persistance.Entity.Account.Account;
 import Persistance.Entity.Account.AccountType;
-import Presentation.Tools.Color;
-import Presentation.Tools.Message;
+import Presentation.Tool.Color;
+import Presentation.Tool.Message;
 
 
 public class CheckLogin implements ICheckLogin

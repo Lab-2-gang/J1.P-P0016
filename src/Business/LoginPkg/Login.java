@@ -1,7 +1,7 @@
 package Business.LoginPkg;
 
-import Presentation.Tools.Color;
-import Presentation.Tools.Message;
+import Presentation.Tool.Color;
+import Presentation.Tool.Message;
 import Tool.PatternCheck;
 import Tool.ReadInput;
 
@@ -22,10 +22,10 @@ public class Login implements ILogin
         try
         {
             System.out.print("Enter username: ");
-            username = ReadInput.ReadUserInput();
+            username = ReadInput.Read();
 
             System.out.print("Enter password: ");
-            password = ReadInput.ReadUserInput();
+            password = ReadInput.Read();
 
             if (CheckPassword(password) != true || CheckUsername(username) != true)
             {

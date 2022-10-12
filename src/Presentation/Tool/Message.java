@@ -1,4 +1,4 @@
-package Presentation.Tools;
+package Presentation.Tool;
 
 
 public class Message

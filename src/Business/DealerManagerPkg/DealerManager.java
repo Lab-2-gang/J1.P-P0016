@@ -8,8 +8,8 @@ import Business.DealerManagerPkg.Update.*;
 import Persistance.Database;
 import Presentation.Menu.DealerMenu;
 import Presentation.Menu.PrintMenu;
-import Presentation.Tools.Color;
-import Presentation.Tools.Message;
+import Presentation.Tool.Color;
+import Presentation.Tool.Message;
 import Tool.ReadInput;
 
 
@@ -27,7 +27,7 @@ public class DealerManager implements IDealerManager
             PrintMenu.Print(dealerMenu.getMenuList());
 
             System.out.print("Enter option: ");
-            String userInput = ReadInput.ReadUserInput();
+            String userInput = ReadInput.Read();
 
             if (userInput == null || userInput.isBlank() == true)
             {

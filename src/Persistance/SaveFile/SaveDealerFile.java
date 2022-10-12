@@ -5,8 +5,8 @@ import java.io.File;
 import java.io.FileWriter;
 import Persistance.Database;
 import Persistance.Entity.Dealer.Dealer;
-import Presentation.Tools.Color;
-import Presentation.Tools.Message;
+import Presentation.Tool.Color;
+import Presentation.Tool.Message;
 
 
 public class SaveDealerFile

@@ -3,8 +3,8 @@ package Business.DealerManagerPkg.Print;
 import java.util.ArrayList;
 import Persistance.Database;
 import Persistance.Entity.Dealer.Dealer;
-import Presentation.Tools.Color;
-import Presentation.Tools.Message;
+import Presentation.Tool.Color;
+import Presentation.Tool.Message;
 
 
 public class PrintAllDealers implements IPrint

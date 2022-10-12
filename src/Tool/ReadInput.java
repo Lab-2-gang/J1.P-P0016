@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class ReadInput
 {
     // read input as string
-    public static String ReadUserInput()
+    public static String Read()
     {
         @SuppressWarnings("resource")
         Scanner readInput = new Scanner(System.in);
