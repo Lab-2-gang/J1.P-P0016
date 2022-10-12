@@ -3,11 +3,7 @@ package Persistance;
 import java.util.ArrayList;
 import Persistance.Entity.Account.Account;
 import Persistance.Entity.Dealer.Dealer;
-import Persistance.Entity.Delivery.Delivery;
-import Persistance.ReadFile.IReadDatabase;
-import Persistance.ReadFile.ReadAccountFile;
-import Persistance.ReadFile.ReadDealerFile;
-import Persistance.ReadFile.ReadDeliveryFile;
+import Persistance.ReadFile.*;
 import Persistance.SaveFile.SaveDealerFile;
 import Tool.DatabaseType;
 
@@ -15,11 +11,7 @@ import Tool.DatabaseType;
 public class Database
 {
     // private Database object
-    private static Database database = null;
-
-
-    // path to config file
-    private final String PATH_TO_CONFIG_FILE = "config.dat";
+    private static volatile Database database = null;
     
     
     // file paths
@@ -29,7 +21,6 @@ public class Database
     // database
     private final ArrayList<Account> accountDatabse;
     private final ArrayList<Dealer> dealerDatabase;
-    private final ArrayList<Delivery> deliveryDatabase;
     
     
     public static Database GetDatabase()
@@ -54,16 +45,22 @@ public class Database
     // private constructor
     private Database()
     {
-        filePaths.InitiateFilePath(PATH_TO_CONFIG_FILE);
+        // initiate data
+        InitializeData.Initiate();
+
+
+        // get file paths
+        filePaths.InitiateFilePath();
         
+
+        // read account file
         IReadDatabase<Account> readAccountFile = new ReadAccountFile();
         accountDatabse = readAccountFile.ReadDatabase(filePaths.GetPath(DatabaseType.Accounts));
         
+
+        // read dealers file
         IReadDatabase<Dealer> readDealerFile = new ReadDealerFile();
         dealerDatabase = readDealerFile.ReadDatabase(filePaths.GetPath(DatabaseType.Dealers));
-        
-        IReadDatabase<Delivery> readDeliveryFile = new ReadDeliveryFile();
-        deliveryDatabase = readDeliveryFile.ReadDatabase(filePaths.GetPath(DatabaseType.Deliveries));
     }
     
     
@@ -77,12 +74,6 @@ public class Database
     public ArrayList<Dealer> GetDealerDatabase()
     {
         return dealerDatabase;
-    }
-
-
-    public ArrayList<Delivery> GetDeliveryDatabase()
-    {
-        return deliveryDatabase;
     }
 
 

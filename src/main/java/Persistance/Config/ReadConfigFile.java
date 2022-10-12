@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 import Persistance.Tool.IReadFile;
-import Persistance.Tool.ReadFile;
+import Persistance.Tool.ReadFileResource;
 import Persistance.Tool.ReadFileTool;
 import Tool.DatabaseType;
 
@@ -25,7 +25,7 @@ public class ReadConfigFile implements IReadConfigFile
     @Override
     public HashMap<DatabaseType, String> Read(String filePath)
     {
-        IReadFile readFileConfig = new ReadFile();
+        IReadFile readFileConfig = new ReadFileResource();
         ArrayList<String> fileContent = readFileConfig.Read(filePath);
         
         if (fileContent == null)

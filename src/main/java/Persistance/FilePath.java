@@ -8,6 +8,10 @@ import Tool.DatabaseType;
 
 public class FilePath implements IFilePath
 {
+    // path to config file
+    private String CONFIG_PATH = "config.dat";
+
+
     // paths to files
     private String pathToAccountsFile = null;
     private String pathToDealersFile = null;
@@ -16,10 +20,10 @@ public class FilePath implements IFilePath
     
     // initiate config file and get file paths
     @Override
-    public void InitiateFilePath(String configPath)
+    public void InitiateFilePath()
     {
         IReadConfigFile configFile = new ReadConfigFile();
-        HashMap<DatabaseType, String> filePaths = configFile.Read(configPath);
+        HashMap<DatabaseType, String> filePaths = configFile.Read(CONFIG_PATH);
         
         if (filePaths == null)
         {

@@ -1,26 +1,30 @@
 package Persistance.Tool;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import Tool.CheckNullOrBlank;
 
-public class ReadFile implements IReadFile
+
+public class ReadFileResource implements IReadFile
 {
-    // read file relative to the jar/working dir
+    // read files from resources folder in jar
     @Override
     public ArrayList<String> Read(String filePath)
     {
         try
         {
-            File file = new File(filePath);
-            FileReader fileReader = new FileReader(file);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            ClassLoader classLoader = getClass().getClassLoader();
+            InputStream inputStream = classLoader.getResourceAsStream(filePath);
+
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         
             String line = bufferedReader.readLine();
             
-            if (line == null || line.isBlank())
+            if (CheckNullOrBlank.Check(line) == true)
             {
                 bufferedReader.close();
                 return null;

@@ -9,6 +9,8 @@ import Persistance.Entity.Account.AccountType;
 import Persistance.Tool.IReadFile;
 import Persistance.Tool.ReadFile;
 import Persistance.Tool.ReadFileTool;
+import Presentation.Tool.Color;
+import Presentation.Tool.Message;
 import Tool.CheckNullOrBlank;
 import Tool.PatternCheck;
 
@@ -28,6 +30,13 @@ public class ReadAccountFile implements IReadDatabase<Account>
     @Override
     public ArrayList<Account> ReadDatabase(String filePath)
     {
+        if (filePath == null)
+        {
+            // cannot get accounts file
+            Message.showMessage("Cannot get accounts file!", Color.RED);
+            System.exit(1);
+        }
+        
         IReadFile readFile = new ReadFile();
         ArrayList<String> fileContent = readFile.Read(filePath);
         

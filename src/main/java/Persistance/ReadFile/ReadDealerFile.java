@@ -8,6 +8,8 @@ import Persistance.Entity.Dealer.Dealer;
 import Persistance.Tool.IReadFile;
 import Persistance.Tool.ReadFile;
 import Persistance.Tool.ReadFileTool;
+import Presentation.Tool.Color;
+import Presentation.Tool.Message;
 import Tool.PatternCheck;
 
 
@@ -29,6 +31,16 @@ public class ReadDealerFile implements IReadDatabase<Dealer>
     @Override
     public ArrayList<Dealer> ReadDatabase(String filePath)
     {
+        // cannot get file path
+        if (filePath == null)
+        {
+            // cannot get accounts file
+            Message.showMessage("Cannot get accounts file!", Color.RED);
+            System.exit(1);
+        }
+        
+
+        // initiate
         IReadFile readFile = new ReadFile();
         ArrayList<String> fileContent = readFile.Read(filePath);
         
