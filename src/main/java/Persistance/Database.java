@@ -7,7 +7,6 @@ import Persistance.ReadFile.*;
 import Persistance.SaveFile.SaveDealerFile;
 import Presentation.Tool.Color;
 import Presentation.Tool.Message;
-import Tool.DatabaseType;
 
 
 public class Database

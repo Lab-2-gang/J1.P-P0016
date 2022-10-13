@@ -6,7 +6,6 @@ import java.io.InputStream;
 
 import Presentation.Tool.Color;
 import Presentation.Tool.Message;
-import Tool.DatabaseType;
 
 
 public class InitializeData

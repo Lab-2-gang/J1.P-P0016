@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 import Persistance.Tool.IReadFile;
 import Persistance.Tool.ReadFileResource;
 import Persistance.Tool.ReadFileTool;
-import Tool.DatabaseType;
+import Persistance.DatabaseType;
 
 
 public class ReadConfigFile implements IReadConfigFile

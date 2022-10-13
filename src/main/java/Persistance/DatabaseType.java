@@ -1,4 +1,4 @@
-package Tool;
+package Persistance;
 
 public enum DatabaseType
 {

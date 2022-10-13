@@ -1,7 +1,5 @@
 package Persistance;
 
-import Tool.DatabaseType;
-
 
 public interface IFilePath
 {

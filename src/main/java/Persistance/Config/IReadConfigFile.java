@@ -1,7 +1,7 @@
 package Persistance.Config;
 
 import java.util.HashMap;
-import Tool.DatabaseType;
+import Persistance.DatabaseType;
 
 
 public interface IReadConfigFile

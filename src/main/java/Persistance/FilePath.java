@@ -3,7 +3,6 @@ package Persistance;
 import java.util.HashMap;
 import Persistance.Config.IReadConfigFile;
 import Persistance.Config.ReadConfigFile;
-import Tool.DatabaseType;
 
 
 public class FilePath implements IFilePath
