@@ -9,13 +9,12 @@ import Tool.DatabaseType;
 public class FilePath implements IFilePath
 {
     // path to config file
-    private String CONFIG_PATH = "config.dat";
+    private final String CONFIG_PATH = "config.dat";
 
 
     // paths to files
     private String pathToAccountsFile = null;
     private String pathToDealersFile = null;
-    private String pathToDeliveriesFile = null;
     
     
     // initiate config file and get file paths
@@ -38,8 +37,6 @@ public class FilePath implements IFilePath
                 case Accounts -> pathToAccountsFile = item.getValue();
                 
                 case Dealers -> pathToDealersFile = item.getValue();
-                
-                case Deliveries -> pathToDeliveriesFile = item.getValue();
                 
                 default ->
                 {
@@ -66,15 +63,19 @@ public class FilePath implements IFilePath
                 return pathToDealersFile;
             }
             
-            case Deliveries ->
-            {
-                return pathToDeliveriesFile;
-            }
-            
             default ->
             {
+                // unknown path
                 return null;
             }
         }
+    }
+    
+    
+    // check paths
+    @Override
+    public Boolean CheckPaths()
+    {
+        return this.pathToAccountsFile != null && this.pathToDealersFile != null;
     }
 }

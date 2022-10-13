@@ -4,16 +4,16 @@ package Persistance.Entity.Dealer;
 public class Dealer
 {
     // dealer info
-    private String dealerID;
-    private String dealerName;
-    private String dealerHouseNumber;
-    private String dealerStreetName;
-    private String dealerNumber;
-    private Boolean isContinuing;
+    private final String dealerID;
+    private final String dealerName;
+    private final String dealerHouseNumber;
+    private final String dealerStreetName;
+    private final String dealerNumber;
+    private final Boolean isContinuing;
 
     
     // constructor
-    public Dealer(String dealerID, String dealerName, String dealerHouseNumber, String dealerStreetName, String dealerNumber, Boolean isCotinuing)
+    Dealer(String dealerID, String dealerName, String dealerHouseNumber, String dealerStreetName, String dealerNumber, Boolean isCotinuing)
     {
         this.dealerID = dealerID;
         this.dealerName = dealerName;

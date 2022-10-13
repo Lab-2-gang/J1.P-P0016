@@ -4,6 +4,7 @@ import java.util.Collections;
 import Business.DealerManagerPkg.Tool.CheckDealer;
 import Persistance.Database;
 import Persistance.Entity.Dealer.Dealer;
+import Persistance.Entity.Dealer.DealerBuilder;
 import Presentation.Tool.Color;
 import Presentation.Tool.Message;
 import Tool.AskForInput;
@@ -18,6 +19,7 @@ public class AddDealer implements IAddDealer
 
 
     // get dealer to add
+    @Override
     public void Add()
     {
         Message.showMessage("ADD A NEW DEALER", Color.YELLOW_BACKGROUND);
@@ -96,18 +98,21 @@ public class AddDealer implements IAddDealer
 
 
         // convert dealer status to boolean
-        Boolean dealerStatusBoolean = PatternCheck.Check(TRUE, dealerStatus) == true ? true : false;
+        Boolean dealerStatusBoolean = PatternCheck.Check(TRUE, dealerStatus) == true;
         
 
         // add dealer to database
-        AddDealerToDatabase(new Dealer(
-            dealerID,
-            dealerName,
-            dealerHouseNumber,
-            dealerStreet,
-            dealerPhoneNumber,
-            dealerStatusBoolean));
-
+        Dealer dealer = new DealerBuilder().
+            SetDealerID(dealerID).
+            SetDealerName(dealerName).
+            SetDealerHouseNumber(dealerHouseNumber).
+            SetDealerStreetName(dealerStreet).
+            SetDealerNumber(dealerName).
+            SetDealerStatus(dealerStatusBoolean).
+            Build();
+        
+        
+        AddDealerToDatabase(dealer);
 
         Message.showMessage("Added!", Color.BLUE);
         Message.showMessage("Go back to main menu...\n", Color.BLUE);

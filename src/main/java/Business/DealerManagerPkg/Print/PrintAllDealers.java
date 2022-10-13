@@ -10,6 +10,7 @@ import Presentation.Tool.Message;
 public class PrintAllDealers implements IPrint
 {
     // print only continuing dealers
+    @Override
     public void Print()
     {
         ArrayList<Dealer> tmp = Database.GetDatabase().GetDealerDatabase();

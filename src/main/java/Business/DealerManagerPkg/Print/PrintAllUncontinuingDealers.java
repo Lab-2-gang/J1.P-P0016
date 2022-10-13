@@ -10,6 +10,7 @@ import Presentation.Tool.Message;
 public class PrintAllUncontinuingDealers implements IPrint
 {
     // print only uncontinuing dealers
+    @Override
     public void Print()
     {
         ArrayList<Dealer> tmp = Database.GetDatabase().GetDealerDatabase();

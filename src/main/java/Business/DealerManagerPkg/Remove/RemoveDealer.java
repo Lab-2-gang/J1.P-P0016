@@ -15,6 +15,7 @@ import Tool.AskForInput;
 public class RemoveDealer implements IRemoveDealer
 {
     // get user input to remove
+    @Override
     public void Remove()
     {
         // check is database is empty

@@ -13,6 +13,7 @@ import Tool.AskForInput;
 public class SearchDealer implements ISearchDealer
 {
     // get user input to search for dealer
+    @Override
     public void Search()
     {
         // check if database is empty

@@ -64,7 +64,7 @@ public class InitializeData
         catch (Exception e)
         {
             // error copying file
-            Message.showMessage("Error initiate data!", Color.RED);
+            Message.showMessage("Error initiating data!\n", Color.RED);
             System.exit(1);
         }
     }

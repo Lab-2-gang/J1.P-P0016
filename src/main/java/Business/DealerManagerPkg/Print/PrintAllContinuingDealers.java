@@ -11,6 +11,7 @@ import Presentation.Tool.Message;
 public class PrintAllContinuingDealers implements IPrint
 {
     // print all dealers
+    @Override
     public void Print()
     {
         ArrayList<Dealer> tmp = Database.GetDatabase().GetDealerDatabase();

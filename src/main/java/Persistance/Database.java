@@ -5,6 +5,8 @@ import Persistance.Entity.Account.Account;
 import Persistance.Entity.Dealer.Dealer;
 import Persistance.ReadFile.*;
 import Persistance.SaveFile.SaveDealerFile;
+import Presentation.Tool.Color;
+import Presentation.Tool.Message;
 import Tool.DatabaseType;
 
 
@@ -19,8 +21,8 @@ public class Database
     
     
     // database
-    private final ArrayList<Account> accountDatabse;
-    private final ArrayList<Dealer> dealerDatabase;
+    private ArrayList<Account> accountDatabse;
+    private ArrayList<Dealer> dealerDatabase;
     
     
     public static Database GetDatabase()
@@ -52,15 +54,34 @@ public class Database
         // get file paths
         filePaths.InitiateFilePath();
         
+        if (filePaths.CheckPaths() != true)
+        {
+            // file paths not found
+            Message.showMessage("Cannot get file paths!\n", Color.RED);
+            System.exit(1);
+        }
+        
 
         // read account file
         IReadDatabase<Account> readAccountFile = new ReadAccountFile();
         accountDatabse = readAccountFile.ReadDatabase(filePaths.GetPath(DatabaseType.Accounts));
         
+        if (accountDatabse == null)
+        {
+            Message.showMessage("Empty accounts database. Create new one...\n", Color.RED);
+            accountDatabse = new ArrayList<>();
+        }
+        
 
         // read dealers file
         IReadDatabase<Dealer> readDealerFile = new ReadDealerFile();
         dealerDatabase = readDealerFile.ReadDatabase(filePaths.GetPath(DatabaseType.Dealers));
+        
+        if (dealerDatabase == null)
+        {
+            Message.showMessage("Empty dealers database. Create new one...\n", Color.RED);
+            dealerDatabase = new ArrayList<>();
+        }
     }
     
     

@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 import Persistance.Entity.Dealer.Dealer;
+import Persistance.Entity.Dealer.DealerBuilder;
 import Persistance.Tool.IReadFile;
 import Persistance.Tool.ReadFile;
 import Persistance.Tool.ReadFileTool;
@@ -66,7 +67,7 @@ public class ReadDealerFile implements IReadDatabase<Dealer>
             {
                 StringTokenizer tokenizer = new StringTokenizer(line, DELIM);
                 
-                String[] dealer = new String[]
+                String[] dealerInformation = new String[]
                     {
                         ReadFileTool.GetNextToken(tokenizer),   // 0. id
                         ReadFileTool.GetNextToken(tokenizer),   // 1. name
@@ -76,24 +77,35 @@ public class ReadDealerFile implements IReadDatabase<Dealer>
                         ReadFileTool.GetNextToken(tokenizer),   // 5. is continuing ?
                     };
                 
-                if (CheckDealer(dealer) == false)
+                if (CheckDealer(dealerInformation) == false)
                 {
                     // error wrong account format
                     line = ReadFileTool.GetNextLine(fileContent);
                     continue;
                 }
                 
-                dealers.add(new Dealer(
-                    dealer[0],
-                    dealer[1],
-                    dealer[2],
-                    dealer[3],
-                    dealer[4],
-                    dealer[5].equals("true")));
+                
+                // convert dealer status to boolean
+                Boolean dealerStatusBoolean = PatternCheck.Check(TRUE, dealerInformation[5]) == true;
+                
+                
+                // add dealer
+                Dealer dealer = new DealerBuilder().
+                    SetDealerID(dealerInformation[0]).
+                    SetDealerName(dealerInformation[1]).
+                    SetDealerHouseNumber(dealerInformation[2]).
+                    SetDealerStreetName(dealerInformation[3]).
+                    SetDealerNumber(dealerInformation[4]).
+                    SetDealerStatus(dealerStatusBoolean).
+                    Build();
+                
+                dealers.add(dealer);
 
                 line = ReadFileTool.GetNextLine(fileContent);
             }
             
+            
+            // sort the dealers, then check is there is duplicate
             Collections.sort(dealers, (dealer1, dealer2) ->
                 {
                     return dealer1.getDealerID().compareTo(dealer2.getDealerID());

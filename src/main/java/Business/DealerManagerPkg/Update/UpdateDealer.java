@@ -5,6 +5,7 @@ import java.util.Collections;
 import Business.DealerManagerPkg.Tool.CheckDealer;
 import Persistance.Database;
 import Persistance.Entity.Dealer.Dealer;
+import Persistance.Entity.Dealer.DealerBuilder;
 import Presentation.Tool.Color;
 import Presentation.Tool.Message;
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class UpdateDealer implements IUpdateDealer
     
     
     // get user input to update
+    @Override
     public void Update()
     {
         // check if database is empty
@@ -124,17 +126,19 @@ public class UpdateDealer implements IUpdateDealer
 
 
         // convert user status to boolean
-        Boolean dealerStatusBoolean = PatternCheck.Check(TRUE, dealerStatusUpdate) == true ? true : false;
+        Boolean dealerStatusBoolean = PatternCheck.Check(TRUE, dealerStatusUpdate) == true;
         
 
         // add dealer
-        Dealer dealer = new Dealer(
-            dealerIDUpdate,
-            dealerNameUpdate,
-            dealerHouseNumberUpdate,
-            dealerStreetUpdate,
-            dealerPhoneNumberUpdate,
-            dealerStatusBoolean);
+        Dealer dealer = new DealerBuilder().
+            SetDealerID(dealerIDUpdate).
+            SetDealerName(dealerNameUpdate).
+            SetDealerHouseNumber(dealerHouseNumberUpdate).
+            SetDealerStreetName(dealerStreetUpdate).
+            SetDealerNumber(dealerPhoneNumberUpdate).
+            SetDealerStatus(dealerStatusBoolean).
+            Build();
+
         
         Boolean isUpdate = UpdateDealerToDatabase(dealer, dealerID);
         
