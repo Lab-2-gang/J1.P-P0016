@@ -1,4 +1,4 @@
-package Business.DealerManagerPkg.Remove;
+package Business.DealerManagerPkg.DealerOperation;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,11 +12,11 @@ import Presentation.Tool.Message;
 import Tool.AskForInput;
 
 
-public class RemoveDealer implements IRemoveDealer
+public class RemoveDealer implements IOperation
 {
     // get user input to remove
     @Override
-    public void Remove()
+    public void Initiate()
     {
         // check is database is empty
         ArrayList<Dealer> tmp = Database.GetDatabase().GetDealerDatabase();

@@ -1,5 +1,6 @@
-package Business.DealerManagerPkg.Print;
+package Business.DealerManagerPkg.DealerOperation;
 
+import Business.DealerManagerPkg.Print.PrintDealer;
 import java.util.ArrayList;
 import Persistance.Database;
 import Persistance.Entity.Dealer.Dealer;
@@ -7,11 +8,11 @@ import Presentation.Tool.Color;
 import Presentation.Tool.Message;
 
 
-public class PrintAllUncontinuingDealers implements IPrint
+public class PrintAllUncontinuingDealers implements IOperation
 {
     // print only uncontinuing dealers
     @Override
-    public void Print()
+    public void Initiate()
     {
         ArrayList<Dealer> tmp = Database.GetDatabase().GetDealerDatabase();
         

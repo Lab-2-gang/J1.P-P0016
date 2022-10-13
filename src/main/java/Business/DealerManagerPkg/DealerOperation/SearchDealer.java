@@ -1,4 +1,4 @@
-package Business.DealerManagerPkg.Search;
+package Business.DealerManagerPkg.DealerOperation;
 
 import java.util.ArrayList;
 import Business.DealerManagerPkg.Print.PrintDealer;
@@ -10,11 +10,11 @@ import Presentation.Tool.Message;
 import Tool.AskForInput;
 
 
-public class SearchDealer implements ISearchDealer
+public class SearchDealer implements IOperation
 {
     // get user input to search for dealer
     @Override
-    public void Search()
+    public void Initiate()
     {
         // check if database is empty
         ArrayList<Dealer> tmp = Database.GetDatabase().GetDealerDatabase();

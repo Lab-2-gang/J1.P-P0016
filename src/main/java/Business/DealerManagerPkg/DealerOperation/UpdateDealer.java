@@ -1,4 +1,4 @@
-package Business.DealerManagerPkg.Update;
+package Business.DealerManagerPkg.DealerOperation;
 
 import java.util.Collections;
 
@@ -14,7 +14,7 @@ import Tool.CheckNullOrBlank;
 import Tool.PatternCheck;
 
 
-public class UpdateDealer implements IUpdateDealer
+public class UpdateDealer implements IOperation
 {
     // const format
     private final String TRUE = "^true$";
@@ -22,7 +22,7 @@ public class UpdateDealer implements IUpdateDealer
     
     // get user input to update
     @Override
-    public void Update()
+    public void Initiate()
     {
         // check if database is empty
         ArrayList<Dealer> tmp = Database.GetDatabase().GetDealerDatabase();

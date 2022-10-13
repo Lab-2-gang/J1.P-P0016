@@ -1,4 +1,4 @@
-package Business.DealerManagerPkg.Add;
+package Business.DealerManagerPkg.DealerOperation;
 
 import java.util.Collections;
 import Business.DealerManagerPkg.Tool.CheckDealer;
@@ -12,7 +12,7 @@ import Tool.CheckNullOrBlank;
 import Tool.PatternCheck;
 
 
-public class AddDealer implements IAddDealer
+public class AddDealer implements IOperation
 {
     // const format
     private static final String TRUE = "^true$";
@@ -20,7 +20,7 @@ public class AddDealer implements IAddDealer
 
     // get dealer to add
     @Override
-    public void Add()
+    public void Initiate()
     {
         Message.showMessage("ADD A NEW DEALER", Color.YELLOW_BACKGROUND);
 

@@ -1,10 +1,6 @@
 package Business.DealerManagerPkg;
 
-import Business.DealerManagerPkg.Add.*;
-import Business.DealerManagerPkg.Print.*;
-import Business.DealerManagerPkg.Remove.*;
-import Business.DealerManagerPkg.Search.*;
-import Business.DealerManagerPkg.Update.*;
+import Business.DealerManagerPkg.DealerOperation.*;
 import Persistance.Database;
 
 
@@ -16,44 +12,44 @@ public class DealerManagerDelegate
         {
             case Add ->
             {
-                IAddDealer addDealer = new AddDealer();
-                addDealer.Add();
+                IOperation addDealer = OperationFactory(DealerFunctionType.Add);
+                addDealer.Initiate();
             }
 
             case Search ->
             {
-                ISearchDealer searchDealer = new SearchDealer();
-                searchDealer.Search();
+                IOperation searchDealer = OperationFactory(DealerFunctionType.Search);
+                searchDealer.Initiate();
             }
 
             case Remove ->
             {
-                IRemoveDealer removeDealer = new RemoveDealer();
-                removeDealer.Remove();
+                IOperation removeDealer = OperationFactory(DealerFunctionType.Remove);
+                removeDealer.Initiate();
             }
 
             case Update ->
             {
-                IUpdateDealer updateDealer = new UpdateDealer();
-                updateDealer.Update();
+                IOperation updateDealer = OperationFactory(DealerFunctionType.Update);
+                updateDealer.Initiate();
             }
 
             case PrintAll ->
             {
-                IPrint printAll = new PrintAllDealers();
-                printAll.Print();
+                IOperation printAll = OperationFactory(DealerFunctionType.PrintAll);
+                printAll.Initiate();
             }
 
             case PrintContinuing ->
             {
-                IPrint printContinuing = new PrintAllContinuingDealers();
-                printContinuing.Print();
+                IOperation printContinuing = OperationFactory(DealerFunctionType.PrintContinuing);
+                printContinuing.Initiate();
             }
 
             case PrintUncontinuing ->
             {
-                IPrint printUncontinuing = new PrintAllUncontinuingDealers();
-                printUncontinuing.Print();
+                IOperation printUncontinuing = OperationFactory(DealerFunctionType.PrintUncontinuing);
+                printUncontinuing.Initiate();
             }
 
             case WriteToFile ->
@@ -61,5 +57,51 @@ public class DealerManagerDelegate
                 Database.GetDatabase().SaveAccountFile();
             }
         }
+    }
+    
+    
+    // factory for dealer operation
+    private IOperation OperationFactory(DealerFunctionType type)
+    {
+        switch (type)
+        {
+            case Add ->
+            {
+                return new AddDealer();
+            }
+            
+            case Search ->
+            {
+                return new SearchDealer();
+            }
+            
+            case Remove ->
+            {
+                return new RemoveDealer();
+            }
+            
+            case Update ->
+            {
+                return new UpdateDealer();
+            }
+            
+            case PrintAll ->
+            {
+                return new PrintAllDealers();
+            }
+            
+            case PrintContinuing ->
+            {
+                return new PrintAllContinuingDealers();
+            }
+            
+            case PrintUncontinuing ->
+            {
+                return new PrintAllUncontinuingDealers();
+            }
+        }
+        
+        // unknown type
+        return null;
     }
 }
