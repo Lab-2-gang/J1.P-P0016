@@ -16,7 +16,7 @@ public class RemoveDealer implements IOperation
 {
     // get user input to remove
     @Override
-    public void Initiate()
+    public void Operate()
     {
         // check is database is empty
         ArrayList<Dealer> tmp = Database.GetDatabase().GetDealerDatabase();

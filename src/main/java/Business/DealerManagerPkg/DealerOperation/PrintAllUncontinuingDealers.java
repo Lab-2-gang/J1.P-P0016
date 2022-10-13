@@ -12,7 +12,7 @@ public class PrintAllUncontinuingDealers implements IOperation
 {
     // print only uncontinuing dealers
     @Override
-    public void Initiate()
+    public void Operate()
     {
         ArrayList<Dealer> tmp = Database.GetDatabase().GetDealerDatabase();
         

@@ -20,7 +20,7 @@ public class AddDealer implements IOperation
 
     // get dealer to add
     @Override
-    public void Initiate()
+    public void Operate()
     {
         Message.showMessage("ADD A NEW DEALER", Color.YELLOW_BACKGROUND);
 

@@ -13,43 +13,43 @@ public class DealerManagerDelegate
             case Add ->
             {
                 IOperation addDealer = OperationFactory(DealerFunctionType.Add);
-                addDealer.Initiate();
+                addDealer.Operate();
             }
 
             case Search ->
             {
                 IOperation searchDealer = OperationFactory(DealerFunctionType.Search);
-                searchDealer.Initiate();
+                searchDealer.Operate();
             }
 
             case Remove ->
             {
                 IOperation removeDealer = OperationFactory(DealerFunctionType.Remove);
-                removeDealer.Initiate();
+                removeDealer.Operate();
             }
 
             case Update ->
             {
                 IOperation updateDealer = OperationFactory(DealerFunctionType.Update);
-                updateDealer.Initiate();
+                updateDealer.Operate();
             }
 
             case PrintAll ->
             {
                 IOperation printAll = OperationFactory(DealerFunctionType.PrintAll);
-                printAll.Initiate();
+                printAll.Operate();
             }
 
             case PrintContinuing ->
             {
                 IOperation printContinuing = OperationFactory(DealerFunctionType.PrintContinuing);
-                printContinuing.Initiate();
+                printContinuing.Operate();
             }
 
             case PrintUncontinuing ->
             {
                 IOperation printUncontinuing = OperationFactory(DealerFunctionType.PrintUncontinuing);
-                printUncontinuing.Initiate();
+                printUncontinuing.Operate();
             }
 
             case WriteToFile ->

@@ -22,7 +22,7 @@ public class UpdateDealer implements IOperation
     
     // get user input to update
     @Override
-    public void Initiate()
+    public void Operate()
     {
         // check if database is empty
         ArrayList<Dealer> tmp = Database.GetDatabase().GetDealerDatabase();

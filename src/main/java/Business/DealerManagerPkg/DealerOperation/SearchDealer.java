@@ -14,7 +14,7 @@ public class SearchDealer implements IOperation
 {
     // get user input to search for dealer
     @Override
-    public void Initiate()
+    public void Operate()
     {
         // check if database is empty
         ArrayList<Dealer> tmp = Database.GetDatabase().GetDealerDatabase();

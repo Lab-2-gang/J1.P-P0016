@@ -12,7 +12,7 @@ public class PrintAllDealers implements IOperation
 {
     // print only continuing dealers
     @Override
-    public void Initiate()
+    public void Operate()
     {
         ArrayList<Dealer> tmp = Database.GetDatabase().GetDealerDatabase();
         
