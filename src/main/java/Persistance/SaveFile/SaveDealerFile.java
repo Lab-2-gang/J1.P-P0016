@@ -15,10 +15,13 @@ public class SaveDealerFile
     {
         try
         {
+            // create buffered writer
             File file = new File(filePath);
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
+            
+            // read dealers from dealer database, then write to dealer file
             for (Dealer dealer : Database.GetDatabase().GetDealerDatabase())
             {
                 StringBuilder stringBuilder = new StringBuilder();
@@ -38,13 +41,14 @@ public class SaveDealerFile
                 bufferedWriter.write(stringBuilder.toString());
             }
 
+            
             Message.showMessage("Save completed!\n", Color.GREEN);
             bufferedWriter.close();
         }
         catch (Exception e)
         {
             // cannot save to file
-            Message.showMessage("Cannot save\n", Color.RED);
+            Message.showMessage("error. Cannot save\n", Color.RED);
         }
     }
 }

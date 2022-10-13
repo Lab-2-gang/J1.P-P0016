@@ -24,7 +24,7 @@ public class RemoveDealer implements IOperation
         if (tmp == null || tmp.isEmpty() == true)
         {
             // empty database
-            Message.showMessage("Empty database!\n", Color.RED);
+            Message.showMessage("Error. Empty database!\n", Color.RED);
             return;
         }
 
@@ -54,7 +54,7 @@ public class RemoveDealer implements IOperation
         else
         {
             // failed to remove
-            Message.showMessage("Remove failed!\n", Color.RED);
+            Message.showMessage("Remove failed\n", Color.RED);
         }
     }
 
@@ -73,6 +73,7 @@ public class RemoveDealer implements IOperation
                 if (currentDealer == null)
                 {
                     // sth wrong
+                    Message.showMessage("Error. Corrupt database\n", Color.RED);
                     return false;
                 }
 
@@ -92,6 +93,7 @@ public class RemoveDealer implements IOperation
         catch (Exception e)
         {
             // error removing
+            Message.showMessage("Error. Cannot remove dealer\n", Color.RED);
             return false;
         }
         

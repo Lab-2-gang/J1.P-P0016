@@ -53,10 +53,12 @@ public class Database
         // get file paths
         filePaths.InitiateFilePath();
         
+        
+        // check file paths
         if (filePaths.CheckPaths() != true)
         {
             // file paths not found
-            Message.showMessage("Cannot get file paths!\n", Color.RED);
+            Message.showMessage("Error. Cannot get file paths\n", Color.RED);
             System.exit(1);
         }
         

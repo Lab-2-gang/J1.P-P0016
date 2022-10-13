@@ -1,5 +1,7 @@
 package Persistance.Tool;
 
+import Presentation.Tool.Color;
+import Presentation.Tool.Message;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -14,18 +16,25 @@ public class ReadFile implements IReadFile
     {
         try
         {
+            // create buffered reader
             File file = new File(filePath);
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
         
+            
+            // try reading first lien to check empty file
             String line = bufferedReader.readLine();
             
             if (line == null || line.isBlank())
             {
+                Message.showMessage("Error. Empty file\n", Color.RED);
+                
                 bufferedReader.close();
                 return null;
             }
             
+            
+            // start reading file
             ArrayList<String> fileContent = new ArrayList<>();
             
             while (line != null)
@@ -34,11 +43,13 @@ public class ReadFile implements IReadFile
                 line = bufferedReader.readLine();
             }
             
+            
             bufferedReader.close();
             return fileContent;
         }
         catch (Exception e)
         {
+            Message.showMessage("Error. Cannot read file\n", Color.RED);
             return null;
         }
     }

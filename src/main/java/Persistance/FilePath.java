@@ -3,6 +3,8 @@ package Persistance;
 import java.util.HashMap;
 import Persistance.Config.IReadConfigFile;
 import Persistance.Config.ReadConfigFile;
+import Presentation.Tool.Color;
+import Presentation.Tool.Message;
 
 
 public class FilePath implements IFilePath
@@ -23,9 +25,12 @@ public class FilePath implements IFilePath
         IReadConfigFile configFile = new ReadConfigFile();
         HashMap<DatabaseType, String> filePaths = configFile.Read(CONFIG_PATH);
         
+        
+        // check file paths
         if (filePaths == null)
         {
             // error cannot read config file
+            Message.showMessage("Error. Cannot read config file\n", Color.RED);
             return;
         }
         
@@ -40,6 +45,7 @@ public class FilePath implements IFilePath
                 default ->
                 {
                     // error unknown value
+                        Message.showMessage("Error. Unknown file type\n", Color.RED);
                 }
             }
         }
@@ -65,6 +71,7 @@ public class FilePath implements IFilePath
             default ->
             {
                 // unknown path
+                Message.showMessage("Error. Unknown file path\n", Color.RED);
                 return null;
             }
         }

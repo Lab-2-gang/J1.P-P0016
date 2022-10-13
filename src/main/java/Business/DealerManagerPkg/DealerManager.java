@@ -27,7 +27,7 @@ public class DealerManager implements IDealerManager
             if (userInput == null || userInput.isBlank() == true)
             {
                 // invalid input
-                Message.showMessage("Empty input\n", Color.RED);
+                Message.showMessage("Invalid input\n", Color.RED);
                 continue;
             }
 
@@ -56,12 +56,16 @@ public class DealerManager implements IDealerManager
                     default -> null;
                 };
 
+            
+            // exit dealer manager menu
             if (functionType == null)
             {
                 ClearConsole.Clear();
                 break;
             }
 
+            
+            // delegate
             dealerDelegate.Delegate(functionType);
         }
     }

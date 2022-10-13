@@ -1,8 +1,7 @@
 import Business.Business;
 import Business.LoginPkg.*;
 import Persistance.Entity.Account.AccountType;
-import Presentation.Tool.Color;
-import Presentation.Tool.Message;
+import Presentation.Tool.*;
 import Tool.CheckNullOrBlank;
 import Tool.ClearConsole;
 import Tool.ReadInput;
@@ -20,11 +19,15 @@ public class Program
         {
             Message.showMessage("Welcome to Dealer Management Program\n", Color.GREEN);
 
+            
+            // login menu
             System.out.println("===============================================");
             System.out.println("1. Login");
             System.out.println("2. Exit");
             System.out.print("Enter your option: ");
 
+            
+            // get user input
             String userInput = ReadInput.Read();
 
             if (CheckNullOrBlank.Check(userInput) == true)
@@ -33,8 +36,11 @@ public class Program
                 continue;
             }
 
+            
+            // translate user input
             switch (userInput)
             {
+                // login option
                 case "1" ->
                 {
                     ILogin userLogin = new Login();
@@ -43,6 +49,7 @@ public class Program
                     if (userLoginInformation == null)
                     {
                         // get login failed (reported)
+                        Message.showMessage("Cannot get user login\n", Color.RED);
                         continue;
                     }
 
@@ -54,6 +61,7 @@ public class Program
                     if (accountType == null)
                     {
                         // account does not exist (reported)
+                        Message.showMessage("Account does not exist\n", Color.RED);
                         continue;
                     }
 
@@ -81,12 +89,16 @@ public class Program
                     }
                 }
 
+                
+                // quit option
                 case "2" ->
                 {
                     Message.showMessage("Exiting program...\n", Color.GREEN);
                     System.exit(0);
                 }
 
+                
+                // invalid input
                 default ->
                 {
                     Message.showMessage("Invalid input\n", Color.RED);

@@ -9,7 +9,7 @@ public class AskForInput
     {
         if (message == null || message.isBlank() == true)
         {
-            Message.showMessage("No message was found to ask!", Color.RED);
+            Message.showMessage("Error. No message was found to ask\n", Color.RED);
             return null;
         }
 

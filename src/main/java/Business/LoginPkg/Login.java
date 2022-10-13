@@ -14,11 +14,14 @@ public class Login implements ILogin
 
 
     // read user login
+    @Override
     public String[] ReadLogin()
     {
         String username;
         String password;
         
+        
+        // read user input
         try
         {
             System.out.print("Enter username: ");
@@ -27,6 +30,8 @@ public class Login implements ILogin
             System.out.print("Enter password: ");
             password = ReadInput.Read();
 
+            
+            // check validity of login
             if (CheckPassword(password) != true || CheckUsername(username) != true)
             {
                 // error (reported)
@@ -37,7 +42,7 @@ public class Login implements ILogin
         }
         catch (Exception e)
         {
-            System.out.println("Error login!\n");
+            Message.showMessage("Error. Cannot get user login\n", Color.RED);
             return null;
         }
     }
@@ -48,7 +53,7 @@ public class Login implements ILogin
     {
         if (PatternCheck.Check(USERNAME_FORMAT, username) != true)
         {
-            Message.showMessage("Invalid username\n", Color.RED);
+            Message.showMessage("Error. Invalid username\n", Color.RED);
             return false;
         }
 
@@ -59,11 +64,9 @@ public class Login implements ILogin
     // check validity of password
     private Boolean CheckPassword(String password)
     {
-        // Password is unlimited characters and numbers
-        // Return Boolean
         if (PatternCheck.Check(PASSWORD_FORMAT, password) != true)
         {
-            Message.showMessage("Invalid password\n", Color.RED);
+            Message.showMessage("Error. Invalid password\n", Color.RED);
             return false;
         }
 

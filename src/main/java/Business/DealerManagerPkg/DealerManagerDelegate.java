@@ -2,6 +2,8 @@ package Business.DealerManagerPkg;
 
 import Business.DealerManagerPkg.DealerOperation.*;
 import Persistance.Database;
+import Presentation.Tool.Color;
+import Presentation.Tool.Message;
 
 
 public class DealerManagerDelegate
@@ -102,6 +104,7 @@ public class DealerManagerDelegate
         }
         
         // unknown type
+        Message.showMessage("Error. Unknown type\n", Color.RED);
         return null;
     }
 }

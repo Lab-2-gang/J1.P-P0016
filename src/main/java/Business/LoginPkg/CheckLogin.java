@@ -10,6 +10,7 @@ import Presentation.Tool.Message;
 public class CheckLogin implements ICheckLogin
 {
     // check login using database
+    @Override
     public AccountType Check(String[] login)
     {
         for (Account account : Database.GetDatabase().GetAccountDatabase())
@@ -21,7 +22,7 @@ public class CheckLogin implements ICheckLogin
             } 
         }
 
-        Message.showMessage("Account does not exist\n", Color.RED);
+        Message.showMessage("Error. Account does not exist\n", Color.RED);
         return null;
     }
 }

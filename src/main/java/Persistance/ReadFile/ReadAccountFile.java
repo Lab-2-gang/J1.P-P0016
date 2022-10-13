@@ -30,34 +30,45 @@ public class ReadAccountFile implements IReadDatabase<Account>
     @Override
     public ArrayList<Account> ReadDatabase(String filePath)
     {
+        // check file path
         if (filePath == null)
         {
             // cannot get accounts file
-            Message.showMessage("Cannot get accounts file!", Color.RED);
+            Message.showMessage("Error. Cannot get accounts file", Color.RED);
             System.exit(1);
         }
         
+        
+        // read file as array list of string
         IReadFile readFile = new ReadFile();
         ArrayList<String> fileContent = readFile.Read(filePath);
         
         if (fileContent == null)
         {
             // error file is empty
+            Message.showMessage("Error. Empty file\n", Color.RED);
             return null;
         }
         
+        
+        // convert string into account object
         ArrayList<Account> accounts = new ArrayList<>();
         
         try
         {
             String line = ReadFileTool.GetNextLine(fileContent);
             
+            
+            // check empty file
             if (line == null)
             {
                 // error file is blank
+                Message.showMessage("Error. Empty file\n", Color.RED);
                 return null;
             }
                         
+            
+            // start reading
             while (line != null)
             {
                 StringTokenizer tokenizer = new StringTokenizer(line, DELIM);
@@ -68,6 +79,8 @@ public class ReadAccountFile implements IReadDatabase<Account>
                         ReadFileTool.GetNextToken(tokenizer)     // 2. account type
                     };
                 
+                
+                // check account format
                 if (CheckAccount(account) == false)
                 {
                     // error wrong account format
@@ -75,6 +88,8 @@ public class ReadAccountFile implements IReadDatabase<Account>
                     continue;
                 }
                 
+                
+                // translate account role
                 switch (account[2])
                 {
                     case "Boss" -> accounts.add(new Account(account[0], account[1], AccountType.Boss));
@@ -95,9 +110,12 @@ public class ReadAccountFile implements IReadDatabase<Account>
         catch (Exception e)
         {
             // error reading the file
+            Message.showMessage("Error. Cannot read file\n", Color.RED);
             return null;
         }
         
+        
+        // sort, check, then return accounts database
         Collections.sort(accounts, (account1, account2) ->
             {
                 return account1.getUsername().compareTo(account2.getUsername());

@@ -1,5 +1,7 @@
 package Tool;
 
+import Presentation.Tool.Color;
+import Presentation.Tool.Message;
 import java.util.Scanner;
 
 
@@ -23,6 +25,7 @@ public class ReadInput
         catch (Exception e)
         {
             // cannot read
+            Message.showMessage("Error. Invalid input\n", Color.RED);
             return null;
         }
     }
@@ -38,6 +41,7 @@ public class ReadInput
         catch (Exception e)
         {
             // cannot convert
+            Message.showMessage("Error. Cannot convert into integer\n", Color.RED);
             return null;
         }
     }
@@ -53,6 +57,7 @@ public class ReadInput
         catch (Exception e)
         {
             // cannot convert
+            Message.showMessage("Error. Cannot convert into float\n", Color.RED);
             return null;
         }
     }

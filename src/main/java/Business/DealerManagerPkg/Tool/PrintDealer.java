@@ -1,4 +1,4 @@
-package Business.DealerManagerPkg.Print;
+package Business.DealerManagerPkg.Tool;
 
 import Persistance.Entity.Dealer.Dealer;
 

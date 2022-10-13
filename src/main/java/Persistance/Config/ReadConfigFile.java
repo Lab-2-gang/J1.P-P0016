@@ -7,6 +7,8 @@ import Persistance.Tool.IReadFile;
 import Persistance.Tool.ReadFileResource;
 import Persistance.Tool.ReadFileTool;
 import Persistance.DatabaseType;
+import Presentation.Tool.Color;
+import Presentation.Tool.Message;
 
 
 public class ReadConfigFile implements IReadConfigFile
@@ -28,9 +30,12 @@ public class ReadConfigFile implements IReadConfigFile
         IReadFile readFileConfig = new ReadFileResource();
         ArrayList<String> fileContent = readFileConfig.Read(filePath);
         
+        
+        // check empty file
         if (fileContent == null)
         {
             // error file is empty
+            Message.showMessage("Error. Empty file\n", Color.RED);
             return null;
         }
         
@@ -38,12 +43,17 @@ public class ReadConfigFile implements IReadConfigFile
         {
             String line = ReadFileTool.GetNextLine(fileContent);
             
+            
+            // check empty file
             if (line == null)
             {
                 // error file is blank
+                Message.showMessage("Error. Empty file\n", Color.RED);
                 return null;
             }
             
+            
+            // read and translate file into hashmap
             HashMap<DatabaseType, String> filePaths = new HashMap<>();
             
             while (line != null)
@@ -68,6 +78,7 @@ public class ReadConfigFile implements IReadConfigFile
         catch (Exception e)
         {
             // error reading file
+            Message.showMessage("Error. Cannot read file\n", Color.RED);
             return null;
         }
     }
@@ -96,6 +107,7 @@ public class ReadConfigFile implements IReadConfigFile
             default ->
             {
                 // error unknown file indicator
+                Message.showMessage("Error. Unknown file path\n", Color.RED);
                 break;
             }
         }

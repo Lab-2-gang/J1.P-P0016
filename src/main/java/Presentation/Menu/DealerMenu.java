@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class DealerMenu
 {
     // menu list
-    private ArrayList<String> menuList = new ArrayList<String>();
+    private final ArrayList<String> menuList = new ArrayList<>();
 
 
     // public getMenu() return menuList

@@ -30,7 +30,7 @@ public class UpdateDealer implements IOperation
         if (tmp == null || tmp.isEmpty() == true)
         {
             // empty database
-            Message.showMessage("Empty database!\n", Color.RED);
+            Message.showMessage("Error. Empty database\n", Color.RED);
             return;
         }
 
@@ -150,7 +150,7 @@ public class UpdateDealer implements IOperation
         else
         {
             // failed to update
-            Message.showMessage("Cannot update\n", Color.RED);
+            Message.showMessage("Error. Cannot update\n", Color.RED);
         }
     }
     

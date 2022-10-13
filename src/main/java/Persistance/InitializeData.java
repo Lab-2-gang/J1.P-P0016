@@ -29,10 +29,29 @@ public class InitializeData
         IFilePath filePath = new FilePath();
         filePath.InitiateFilePath();
 
+        
+        // create files in Data folder
+        File accountFile = new File(filePath.GetPath(DatabaseType.Accounts));
+        File dealerFile = new File(filePath.GetPath(DatabaseType.Dealers));
+        
+        try
+        {
+            accountFile.createNewFile();
+            dealerFile.createNewFile();
+        }
+        catch (Exception e)
+        {
+            Message.showMessage("Error. Cannot create database files\n", Color.RED);
+            System.exit(1);
+        }
+        
+        
+        // copy files from resources to Data
         CopyFile(filePath.GetPath(DatabaseType.Accounts));
         CopyFile(filePath.GetPath(DatabaseType.Dealers));
     }
 
+    @SuppressWarnings("ConvertToTryWithResources")
     private static void CopyFile(String filePath)
     {
         try
@@ -63,8 +82,7 @@ public class InitializeData
         catch (Exception e)
         {
             // error copying file
-            Message.showMessage("Error initiating data!\n", Color.RED);
-            System.exit(1);
+            Message.showMessage("Error. Cannot initiate data from template database\n", Color.RED);
         }
     }
 }

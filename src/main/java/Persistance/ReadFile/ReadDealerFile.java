@@ -36,21 +36,24 @@ public class ReadDealerFile implements IReadDatabase<Dealer>
         if (filePath == null)
         {
             // cannot get accounts file
-            Message.showMessage("Cannot get accounts file!", Color.RED);
+            Message.showMessage("Error. Cannot get dealers file!", Color.RED);
             System.exit(1);
         }
         
 
-        // initiate
+        // get file content as array list of string
         IReadFile readFile = new ReadFile();
         ArrayList<String> fileContent = readFile.Read(filePath);
         
         if (fileContent == null)
         {
             // error file is empty
+            Message.showMessage("Error. Empty file\n", Color.RED);
             return null;
         }
         
+        
+        // convert strings into dealer object
         try
         {
             String line = ReadFileTool.GetNextLine(fileContent);
@@ -58,6 +61,7 @@ public class ReadDealerFile implements IReadDatabase<Dealer>
             if (line == null)
             {
                 // error file is empty
+                Message.showMessage("Error. Empty file\n", Color.RED);
                 return null;
             }
             
@@ -114,6 +118,7 @@ public class ReadDealerFile implements IReadDatabase<Dealer>
             if (CheckDuplicateDealer(dealers) != true)
             {
                 // has duplicate dealer
+                Message.showMessage("Error. Duplicate dealer. Reject database...\n", Color.RED);
                 return null;
             }
             
@@ -122,6 +127,7 @@ public class ReadDealerFile implements IReadDatabase<Dealer>
         catch (Exception e)
         {
             // error cannot read file
+            Message.showMessage("Error. Cannot read file\n", Color.RED);
             return null;
         }
     }
@@ -157,6 +163,7 @@ public class ReadDealerFile implements IReadDatabase<Dealer>
         catch (Exception e)
         {
             // error null pointer
+            Message.showMessage("Error. Null arguments\n", Color.RED);
         }
         
         return isNullOrBlank == false

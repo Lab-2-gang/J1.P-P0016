@@ -1,6 +1,6 @@
 package Business.DealerManagerPkg.DealerOperation;
 
-import Business.DealerManagerPkg.Print.PrintDealer;
+import Business.DealerManagerPkg.Tool.PrintDealer;
 import java.util.ArrayList;
 import Persistance.Database;
 import Persistance.Entity.Dealer.Dealer;
@@ -19,7 +19,7 @@ public class PrintAllUncontinuingDealers implements IOperation
         if (tmp == null || tmp.isEmpty() == true)
         {
             // empty database
-            Message.showMessage("Empty database!\n", Color.RED);
+            Message.showMessage("Error. Empty database\n", Color.RED);
             return;
         }
         

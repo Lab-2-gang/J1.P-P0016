@@ -1,7 +1,7 @@
 package Business.DealerManagerPkg.DealerOperation;
 
+import Business.DealerManagerPkg.Tool.PrintDealer;
 import java.util.ArrayList;
-import Business.DealerManagerPkg.Print.PrintDealer;
 import Business.DealerManagerPkg.Tool.CheckDealer;
 import Persistance.Database;
 import Persistance.Entity.Dealer.Dealer;

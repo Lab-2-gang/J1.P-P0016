@@ -2,6 +2,8 @@ package Business;
 
 import Business.DealerManagerPkg.*;
 import Persistance.Entity.Account.AccountType;
+import Presentation.Tool.Color;
+import Presentation.Tool.Message;
 
 
 public class Business
@@ -13,7 +15,7 @@ public class Business
         {
             case Boss ->
             {
-                // to be implemented
+                Message.showMessage("To be implemented\n", Color.BLUE);
             }
 
             case Dealer ->
@@ -24,7 +26,7 @@ public class Business
 
             case Delivery ->
             {
-                // to be implemented
+                Message.showMessage("To be implemented\n", Color.BLUE);
             }
         }
     }
