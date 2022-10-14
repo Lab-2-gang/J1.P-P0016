@@ -7,25 +7,21 @@ import java.util.Scanner;
 
 public class ReadInput
 {
+    private static Scanner readInput = new Scanner(System.in);
+
+
     // read input as string
     public static String Read()
     {
-        @SuppressWarnings("resource")
-        Scanner readInput = new Scanner(System.in);
-
         try
         {
-            if (readInput.hasNext() == true)
-            {
-                return readInput.nextLine().trim();
-            }
-
-            return null;
+            return readInput.nextLine().trim();
         }
         catch (Exception e)
         {
             // cannot read
             Message.showMessage("Error. Invalid input\n", Color.RED);
+            readInput = new Scanner(System.in);
             return null;
         }
     }

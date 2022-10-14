@@ -17,6 +17,7 @@ public class DealerManager implements IDealerManager
         DealerMenu dealerMenu = new DealerMenu();
         DealerManagerDelegate dealerDelegate = new DealerManagerDelegate();
 
+        
         while (true)
         {   
             PrintMenu.Print(dealerMenu.getMenuList());
